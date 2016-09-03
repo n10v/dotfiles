@@ -19,7 +19,7 @@ set softtabstop=2    " Number of columns that will be added when you hit Tab in 
 set tabstop=2        " Number of columns a tab counts for
 set ttyfast          " Indicate fast terminal conn for faster redraw
 set ttyscroll=3      " Speedup scrolling
-set	visualbell       " Set bell off
+set visualbell       " Set bell off
 
 " Insert tab literal with Shift-Tab
 inoremap <S-Tab> <C-V><Tab>
@@ -46,8 +46,8 @@ colorscheme macvim
 
 " This enables us to undo files even if you exit Vim.
 if has('persistent_undo')
-	  set undofile
-		set undodir=~/.config/vim/tmp/undo//
+  set undofile
+  set undodir=~/.config/vim/tmp/undo//
 endif
 
 " Enter automatically into the files directory

@@ -80,6 +80,7 @@ filetype plugin on
 
 "------- Supertab settings -------
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 let g:SuperTabMappingBackward = "<s-nil>"
 "------- End Supertab settings ---
 

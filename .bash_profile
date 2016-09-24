@@ -12,6 +12,10 @@ set -o vi
 shopt -s histappend
 PROMPT_COMMAND='history -a'
 
+# ls colors
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
 # Ignore duplicates and ls, bg ,fg, exit in history
 export HISTCONTROL="ignoredups"
 export HISTIGNORE="&:ls:[bf]g:exit"

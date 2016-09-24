@@ -1,7 +1,7 @@
 export EDITOR=vim
 export GOPATH=$HOME/go
 export GOROOT=$HOME/.gosrc
-export GOROOT_BOOTSTRAP=$HOME/.godev
+export GOROOT_BOOTSTRAP=$HOME/godev
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 set -o vi

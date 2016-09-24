@@ -44,18 +44,8 @@ set guifont=Menlo:h12
 set background=light
 colorscheme macvim
 
-" This enables us to undo files even if you exit Vim.
-if has('persistent_undo')
-  set undofile
-  set undodir=~/.config/vim/tmp/undo//
-endif
-
 " Enter automatically into the files directory
 autocmd BufEnter * silent! lcd %:p:h
-
-" Open :GoDeclsDir with ctrl-g
-nmap <C-g> :GoDeclsDir<cr>
-imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
 "------- Vundle settings --------
 " set the runtime path to include Vundle and initialize

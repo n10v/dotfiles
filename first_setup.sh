@@ -37,6 +37,12 @@ brew install vim --with-lua
 brew cask cleanup
 brew cleanup
 
+# Add symlinks to dotfiles
+rm ~/.bash_profile
+ln -s ~/dotfiles/.bash_profile ~/.bash_profile
+rm ~/.vimrc
+ln -s ~/dotfiles/.vimrc ~/.vimrc
+
 echo "Install manually:"
 echo "  * Pocket"
 echo "  * Syncthing"

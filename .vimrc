@@ -10,6 +10,7 @@ set smartcase        " ... but not it begins with upper case
 set incsearch        " Shows the match while typing
 set lazyredraw       " Wait to redraw
 set number           " Show line numbers
+set relativenumber   " Show numbers relative to current line
 set nocompatible     " Enables us Vim specific features
 set noshowmatch      " Do not show matching brackets by flickering
 set noswapfile       " No swp files

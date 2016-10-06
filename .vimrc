@@ -57,7 +57,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-commentary'
 Plugin 'easymotion/vim-easymotion'

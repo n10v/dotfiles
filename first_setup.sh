@@ -6,18 +6,16 @@ brew tap caskroom/versions
 
 # Usual programs
 brew cask install adapter
-brew cask install chrome
 brew cask install gimp
+brew cask install google-chrome
 brew cask install google-drive
 brew cask install lantern
 brew cask install skype
-brew cask install spectacle
+brew cask install the-unarchiver
 brew cask install torbrowser
 brew cask install transmission
 brew cask install tunnelblick
 brew cask install vlc
-brew install taglib
-brew install the-unarchiver
 brew install youtube-dl
 
 # Dev
@@ -44,5 +42,6 @@ rm ~/.vimrc
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 
 echo "Install manually:"
+echo "  * Google Chrome Canary"
 echo "  * Pocket"
 echo "  * Syncthing"

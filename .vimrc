@@ -12,7 +12,6 @@ set lazyredraw       " Wait to redraw
 set number           " Show line numbers
 set relativenumber   " Show numbers relative to current line
 set nocompatible     " Enables us Vim specific features
-set noshowmatch      " Do not show matching brackets by flickering
 set noswapfile       " No swp files
 let mapleader = ','  " Set leader shortcut to a comma ','
 set shiftwidth=2     " Number of spaces inserted for indentation
@@ -21,6 +20,9 @@ set tabstop=2        " Number of columns a tab counts for
 set ttyfast          " Indicate fast terminal conn for faster redraw
 set ttyscroll=3      " Speedup scrolling
 set visualbell       " Set bell off
+
+" Do not show matching brackets by flickering
+let loaded_matchparen=1
 
 " Insert tab literal with Shift-Tab
 inoremap <S-Tab> <C-V><Tab>

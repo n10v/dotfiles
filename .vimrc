@@ -9,11 +9,11 @@ set ignorecase       " Search case insensitive...
 set smartcase        " ... but not it begins with upper case
 set incsearch        " Shows the match while typing
 set lazyredraw       " Wait to redraw
+let mapleader = ','  " Set leader shortcut to a comma ','
 set number           " Show line numbers
-set relativenumber   " Show numbers relative to current line
 set nocompatible     " Enables us Vim specific features
 set noswapfile       " No swp files
-let mapleader = ','  " Set leader shortcut to a comma ','
+set relativenumber   " Show numbers relative to current line
 set shiftwidth=2     " Number of spaces inserted for indentation
 set softtabstop=2    " Number of columns that will be added when you hit Tab in insert mode
 set tabstop=2        " Number of columns a tab counts for
@@ -80,7 +80,6 @@ let g:SuperTabMappingBackward = "<s-nil>"
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>ga :Gwrite<CR>
-nnoremap <Leader>g. :!git add .<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 "------- End Vim-Fugitive settings ---
 
@@ -95,7 +94,6 @@ let g:go_list_type = "quickfix"
 
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go setl sw=2 sts=2 noexpandtab
 
 " :GoDef but opens in a vertical split

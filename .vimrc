@@ -104,3 +104,9 @@ autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
 nmap <C-g> :GoDeclsDir<cr>
 imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 "------- End Vim-Go settings ---
+
+"------- Java Autocomplete settings -------
+if has("autocmd")
+	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+endif
+"------- End Java Autocomplete settings ---

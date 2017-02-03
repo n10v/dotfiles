@@ -3,12 +3,11 @@ export GOPATH=$HOME/go
 export GOROOT=$HOME/.gostable
 export GOROOT_BOOTSTRAP=$HOME/.gobootstrap
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 set -o vi
 export HISTSIZE=3000
 
 # bash completion
-bash_prefix=$(brew --prefix)
+bash_prefix="/usr/local"
 if [ -f $bash_prefix/etc/bash_completion ]; then
 	. $bash_prefix/etc/bash_completion
 fi
@@ -31,6 +30,6 @@ shopt -s cdspell
 # Aliases
 alias y=youtube-dl
 alias n=nehm
-alias v=vnehm
+alias origin='git remote get-url origin | xargs open'
 
 export PS1="(\h) \[\e[34m\]\W\[\e[m\] "

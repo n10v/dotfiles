@@ -1,8 +1,8 @@
 set autoindent       " Enable autoindent
-set autoread         " Automatically read changed files
-set backspace=2      " make backspace work like most other apps
+set backspace=2      " Make backspace work like most other apps
 set colorcolumn=80   " Set up a ruler at 80 symbols
 set encoding=utf-8   " Set default encoding to UTF-8
+set expandtab        " Insert space characters whenever the tab key is pressed
 set ff=unix          " Unix end of file
 set hlsearch         " Highlight found searches
 set ignorecase       " Search case insensitive...

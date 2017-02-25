@@ -1,25 +1,33 @@
-set autoindent       " Enable autoindent
-set backspace=2      " Make backspace work like most other apps
-set colorcolumn=80   " Set up a ruler at 80 symbols
-set encoding=utf-8   " Set default encoding to UTF-8
-set expandtab        " Insert space characters whenever the tab key is pressed
-set ff=unix          " Unix end of file
-set hlsearch         " Highlight found searches
-set ignorecase       " Search case insensitive...
-set smartcase        " ... but not it begins with upper case
-set incsearch        " Shows the match while typing
-set lazyredraw       " Wait to redraw
-let mapleader = ','  " Set leader shortcut to a comma ','
-set number           " Show line numbers
-set nocompatible     " Enables us Vim specific features
-set noswapfile       " No swp files
-set relativenumber   " Show numbers relative to current line
-set shiftwidth=2     " Number of spaces inserted for indentation
-set softtabstop=2    " Number of columns that will be added when you hit Tab in insert mode
-set tabstop=2        " Number of columns a tab counts for
-set ttyfast          " Indicate fast terminal conn for faster redraw
-set ttyscroll=3      " Speedup scrolling
-set visualbell       " Set bell off
+set autoindent         " Enable autoindent
+set backspace=2        " Make backspace work like most other apps
+set colorcolumn=80     " Set up a ruler at 80 symbols
+set clipboard=unnamed  " Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set cursorline				 " Highlight current line
+set encoding=utf-8     " Set default encoding to UTF-8
+set expandtab          " Insert space characters whenever the tab key is pressed
+set ff=unix            " Unix end of file
+set hlsearch           " Highlight found searches
+set ignorecase         " Search case insensitive...
+set smartcase          " ... but not it begins with upper case
+set incsearch          " Shows the match while typing
+set lazyredraw         " Wait to redraw
+let mapleader = ','    " Set leader shortcut to a comma ','
+set number             " Show line numbers
+set nocompatible       " Enables us Vim specific features
+set noswapfile         " No swp files
+set relativenumber     " Show numbers relative to current line
+set shiftwidth=2       " Number of spaces inserted for indentation
+set softtabstop=2      " Number of columns that will be added when you hit Tab in insert mode
+set showmode				   " Show the current mode
+set tabstop=2          " Number of columns a tab counts for
+set ttyfast            " Indicate fast terminal conn for faster redraw
+set ttyscroll=3        " Speedup scrolling
+set visualbell         " Set bell off
+set wildmenu           " Enhance command-line completion
+
+" Don’t add empty newlines at the end of files
+set binary
+set noeol
 
 " Do not show matching brackets by flickering
 let loaded_matchparen=1
@@ -43,7 +51,7 @@ set showbreak=>\ \ \
 " Colorscheme
 syntax enable
 set t_Co=256
-set guifont=Menlo:h12
+set guifont=Menlo:h14
 set background=light
 colorscheme macvim
 

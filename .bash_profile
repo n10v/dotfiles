@@ -1,10 +1,12 @@
-export EDITOR=vim
-export GOPATH=$HOME/go
-export GOROOT=$HOME/.gostable
-export GOROOT_BOOTSTRAP=$HOME/.gobootstrap
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+# Set vi keys for bash
 set -o vi
-export HISTSIZE=3000
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+for file in ~/.{path,bash_prompt,exports,aliases,functions}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
 # bash completion
 bash_prefix="/usr/local"
@@ -12,24 +14,16 @@ if [ -f $bash_prefix/etc/bash_completion ]; then
 	. $bash_prefix/etc/bash_completion
 fi
 
-# Append to history
-shopt -s histappend
-PROMPT_COMMAND='history -a'
-
-# ls colors
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
-
 # Ignore duplicates and ls, bg ,fg, exit in history
 export HISTCONTROL="ignoredups"
 export HISTIGNORE="&:ls:[bf]g:exit"
 
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob
+
+# Append to history
+shopt -s histappend
+
 # Correct cd mispells
 shopt -s cdspell
 
-# Aliases
-alias y=youtube-dl
-alias n=nehm
-alias origin='git remote get-url origin | xargs open'
-
-export PS1="(\h) \[\e[34m\]\W\[\e[m\] "

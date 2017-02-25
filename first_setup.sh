@@ -1,10 +1,35 @@
 #!/bin/bash
 
+# Install command-line tools using Homebrew.
+
+# Make sure we’re using the latest Homebrew.
+brew update
+
+# Upgrade any already-installed formulae.
+brew upgrade
+
 # Install native apps
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
-# Usual programs
+# Install GNU core utilities (those that come with macOS are outdated).
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+brew install coreutils
+
+# Install Bash 4.
+# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
+# running `chsh`.
+brew install bash
+brew tap homebrew/versions
+brew install bash-completion2
+
+# Switch to using brew-installed bash as default shell
+if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
+  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
+  chsh -s /usr/local/bin/bash;
+fi;
+
+# Install some usual programs
 brew cask install adapter
 brew cask install gimp
 brew cask install google-chrome
@@ -18,30 +43,30 @@ brew cask install tunnelblick
 brew cask install vlc
 brew install youtube-dl
 
-# Dev
+# Install some dev tools
 brew cask install atom
 brew cask install imagealpha
 brew cask install imageoptim
 brew cask install iterm2
-brew install bash
 brew install ctags
 brew install curl
 brew install git
-brew install go
 brew install graphviz
-brew install vim --with-lua
+brew install vim --with-override-system-vi
 
 # Cleanup
 brew cask cleanup
 brew cleanup
 
-# Add symlinks to dotfiles
-rm ~/.bash_profile
-ln -s ~/dotfiles/.bash_profile ~/.bash_profile
-rm ~/.vimrc
-ln -s ~/dotfiles/.vimrc ~/.vimrc
+# Make symlinks to dotfiles
+for file in .{bash_profile,.bashrc,bash_prompt,exports,aliases,functions,vimrc,gitconfig,gitignore}; do
+	rm ~/$file 2>/dev/null
+	ln -s ~/dotfiles/$file ~/$file
+done;
+unset file;
 
 echo "Install manually:"
+echo "  * Go
 echo "  * Google Chrome Canary"
 echo "  * Pocket"
 echo "  * Syncthing"

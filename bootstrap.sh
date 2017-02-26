@@ -14,6 +14,7 @@ func doIt() {
 		--exclude "update.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE" \
+		--exclude "photo.png" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
 }

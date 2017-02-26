@@ -47,7 +47,7 @@ prompt_git() {
 
 		[ -n "${s}" ] && s=" [${s}]";
 
-		echo -e "${1}${branchName}${2}${s}";
+		echo -e "${branchName}${s}";
 	else
 		return;
 	fi;
@@ -62,7 +62,7 @@ PS1="\[\033]0;\W\007\]"; # working directory base name
 PS1+="\n"; # newline
 PS1+="at \h"; # host
 PS1+=" in \w"; # working directory full path
-PS1+="\$(prompt_git \"\[${black}\] on \[${black}\]\" \"\[${black}\]\")"; # Git repository details
+PS1+=" on \$(prompt_git)"; # Git repository details
 PS1+="\n";
 PS1+="\[${blue}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;

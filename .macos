@@ -35,7 +35,6 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
-
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
@@ -58,6 +57,7 @@ sudo chflags uchg /private/var/vm/sleepimage
 
 # Disable the sudden motion sensor as it’s not useful for SSDs
 sudo pmset -a sms 0
+
 ############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input              #
 ############################################################################
@@ -90,6 +90,10 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
+
+############################################################################
+# Finder                                                                   #
+############################################################################
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -124,6 +128,7 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
 ############################################################################
 # Dock, Dashboard, and hot corners                                         #
 ###########################################################################
@@ -229,7 +234,7 @@ defaults write com.apple.mail DisableSendAnimations -bool true
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 # Prevent an automatic loading of remote content in e-mails
-defaults read ~/Library/Preferences/com.apple.mail-shared DisableURLLoading
+defaults write ~/Library/Preferences/com.apple.mail-shared DisableURLLoading -bool true
 
 ############################################################################
 # Spotlight                                                                #
@@ -266,7 +271,6 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
-
 ############################################################################
 # Photos                                                                   #
 ############################################################################
@@ -274,9 +278,10 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-###############################################################################
-# Google Chrome & Google Chrome Canary                                        #
-###############################################################################
+############################################################################
+# Google Chrome & Google Chrome Canary                                     #
+############################################################################
+
 # Disable the all too sensitive backswipe on trackpads
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
@@ -324,10 +329,8 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 # Kill affected applications                                               #
 ############################################################################
 
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
-	"Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
-	"Transmission" "Tweetbot" "Twitter" "iCal"; do
+for app in "Activity Monitor" "cfprefsd" "Dock" "Finder" "Google Chrome" \
+	"Google Chrome Canary" "Mail" "Photos" "Safari" "SystemUIServer" "Transmission"; do
 	killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."

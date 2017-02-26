@@ -1,12 +1,12 @@
 [alias]
-	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	# View abbreviated SHA, description, time, author and history graph of the latest 15 commits
+	l = "log --pretty=format:'%Cblue%h%Creset %C(bold)%s%Creset %n    at %cD by %an%n' -n 15 --graph"
 
 	# View the current working tree status using the short format
 	s = status -s
 
 	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	d = !"git diff-index --quiet HEAD --; git diff --patch-with-stat"
 
 	# Pull in remote changes for the current repository and all its submodules
 	pu = !"git pull; git submodule foreach git pull origin master"
@@ -22,8 +22,8 @@
 	branches = branch -a
 	remotes = remote -v
 
-	# Amend the currently staged files to the latest commit
-	amend = commit --amend --reuse-message=HEAD
+	# Show stat
+	stat = diff --stat
 
 	a = add
 	ch = checkout

@@ -30,43 +30,45 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
 fi;
 
 # Install some usual programs
+brew install youtube-dl
 brew cask install adapter
+brew cask install firefox
 brew cask install gimp
 brew cask install google-chrome
+brew cask install google-chrome-canary
 brew cask install google-drive
-brew cask install lantern
+brew cask install imagealpha
+brew cask install imageoptim
+brew cask install opera
+brew cask install selfcontrol
 brew cask install skype
 brew cask install the-unarchiver
 brew cask install torbrowser
 brew cask install transmission
 brew cask install tunnelblick
 brew cask install vlc
-brew install youtube-dl
 
 # Install some dev tools
-brew cask install atom
-brew cask install imagealpha
-brew cask install imageoptim
-brew cask install iterm2
 brew install ctags
 brew install curl
 brew install git
-brew install graphviz
+brew install graphviz # Need for go tool pprof
+brew install openssl
+brew install python
+brew install python3
+brew install ruby
+brew install tmux
+brew install tree
 brew install vim --with-override-system-vi
+brew cask install atom
+brew cask install iterm2
+brew cask install wireshark
 
 # Cleanup
 brew cask cleanup
 brew cleanup
 
-# Make symlinks to dotfiles
-for file in .{bash_profile,.bashrc,bash_prompt,exports,aliases,functions,vimrc,gitconfig,gitignore}; do
-	rm ~/$file 2>/dev/null
-	ln -s ~/dotfiles/$file ~/$file
-done;
-unset file;
-
 echo "Install manually:"
 echo "  * Go
-echo "  * Google Chrome Canary"
 echo "  * Pocket"
 echo "  * Syncthing"

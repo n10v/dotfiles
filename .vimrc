@@ -25,10 +25,6 @@ set ttyscroll=3        " Speedup scrolling
 set visualbell         " Set bell off
 set wildmenu           " Enhance command-line completion
 
-" Don’t add empty newlines at the end of files
-set binary
-set noeol
-
 " Do not show matching brackets by flickering
 let loaded_matchparen=1
 

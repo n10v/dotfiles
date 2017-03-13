@@ -12,6 +12,8 @@ alias lsla="ls -laF" # all files inc dotfiles, in long format
 
 # Quicker navigation
 alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'

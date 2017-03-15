@@ -22,6 +22,9 @@
 	branches = branch -a
 	remotes = remote -v
 
+	# Amend the currently staged files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
+
 	# Show stat
 	stat = diff --stat
 

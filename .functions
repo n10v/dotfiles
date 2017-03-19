@@ -62,7 +62,7 @@ function digga() {
 }
 
 # Check, which size have an every single package
-# (https://habrahabr.ru/company/badoo/blog/322880/).
+# (https://hackernoon.com/a-story-of-a-fat-go-binary-20edc6549b97#.8m9dqk149).
 function gofatty() {
 	eval `go build -work -a 2>&1` && find $WORK -type f -name "*.a" | xargs -I{} du -hxs "{}" | gsort -rh | sed -e s:${WORK}/::g
 }

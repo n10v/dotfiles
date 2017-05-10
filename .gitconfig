@@ -40,17 +40,16 @@
 	sync = codereview sync
 
 [apply]
-
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
 
 [core]
+	excludesfile = ~/.gitignore
 
 	# Make `git rebase` safer on macOS
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 
 [diff "bin"]
-
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C

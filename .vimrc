@@ -63,28 +63,16 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'fatih/vim-go'
 Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
-Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin on
 "------- End Vundle settings ---
-
-"------- Supertab settings -------
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-let g:SuperTabMappingBackward = "<s-nil>"
-"------- End Supertab settings ---
-
-"------- Vim-Fugitive settings -------
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>ga :Gwrite<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-"------- End Vim-Fugitive settings ---
 
 "------- Vim-Go settings -------
 let g:go_highlight_functions = 1
@@ -109,6 +97,23 @@ nmap <C-g> :GoDeclsDir<cr>
 imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 "------- End Vim-Go settings ---
 
+"------- Supertab settings -------
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabMappingBackward = "<s-nil>"
+"------- End Supertab settings ---
+
+"------- Vim-Fugitive settings -------
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>ga :Gwrite<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+"------- End Vim-Fugitive settings ---
+
+"------- Tagbar settings -------
+nnoremap <Leader>tb :TagbarToggle<CR>
+"------- End Tagbar settings ---
+"
 "------- Java Autocomplete settings -------
 if has("autocmd")
 	autocmd Filetype java setlocal omnifunc=javacomplete#Complete

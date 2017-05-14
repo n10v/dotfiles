@@ -92,9 +92,9 @@ autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
 " :GoDef but opens in a horizontal split
 autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
 
-" Open :GoDeclsDir with ctrl-g
-nmap <C-g> :GoDeclsDir<cr>
-imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
+" Open :GoDecls with ctrl-g
+nmap <C-g> :GoDecls<cr>
+imap <C-g> <esc>:<C-u>GoDecls<cr>
 "------- End Vim-Go settings ---
 
 "------- Supertab settings -------

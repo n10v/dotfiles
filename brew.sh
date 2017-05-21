@@ -39,6 +39,7 @@ brew cask install google-chrome-canary
 brew cask install google-drive
 brew cask install imagealpha
 brew cask install imageoptim
+brew cask install keypad-layout
 brew cask install opera
 brew cask install selfcontrol
 brew cask install skype

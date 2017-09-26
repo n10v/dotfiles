@@ -67,7 +67,6 @@ Plugin 'fatih/vim-go'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 call vundle#end()
@@ -102,13 +101,6 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 let g:SuperTabMappingBackward = "<s-nil>"
 "------- End Supertab settings ---
-
-"------- Vim-Fugitive settings -------
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>ga :Gwrite<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-"------- End Vim-Fugitive settings ---
 
 "------- Tagbar settings -------
 nnoremap <Leader>tb :TagbarToggle<CR>

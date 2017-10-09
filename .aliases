@@ -16,8 +16,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-# Always enable colored `grep` output and exclude .git dir
-alias grep='grep --color=auto --exclude-dir .git'
+# Always enable colored `grep` output and exclude .git and node_modules dir
+alias grep='grep --color=auto --exclude-dir .git --exclude-dir node_modules'
 
 # Get week number
 alias week='date +%V'

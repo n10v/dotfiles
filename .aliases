@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-alias y=youtube-dl
+alias y="youtube-dl --buffer-size=16K -o '~/Downloads/%(title)s.%(ext)s'"
 alias n=nehm
 alias gometalinter="gometalinter -D 'vetshadow' -E 'misspell' -E 'unparam' -E 'unused' --cyclo-over=15 --deadline=2m --vendor"
 

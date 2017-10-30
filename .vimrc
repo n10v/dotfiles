@@ -2,10 +2,11 @@ set autoindent         " Enable autoindent
 set backspace=2        " Make backspace work like most other apps
 set colorcolumn=80     " Set up a ruler at 80 symbols
 set clipboard=unnamed  " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set cursorline				 " Highlight current line
+set cursorline         " Highlight current line
 set encoding=utf-8     " Set default encoding to UTF-8
 set expandtab          " Insert space characters whenever the tab key is pressed
 set ff=unix            " Unix end of file
+set paste              " Disable automatic comment insertion
 set hlsearch           " Highlight found searches
 set ignorecase         " Search case insensitive...
 set smartcase          " ... but not it begins with upper case

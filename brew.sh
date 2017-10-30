@@ -51,6 +51,7 @@ brew cask install vlc
 # Install some dev tools
 brew install ctags
 brew install curl
+brew install fzf
 brew install git
 brew install graphviz # Need for go tool pprof
 brew install openssl
@@ -64,10 +65,10 @@ brew cask install iterm2
 brew cask install wireshark
 
 # Cleanup
-brew cask cleanup
 brew cleanup
+brew cask cleanup
 
 echo "Install manually:"
-echo "  * Go
-echo "  * Pocket"
-echo "  * Syncthing"
+echo "* Go"
+echo "* Pocket"
+echo "* Syncthing"

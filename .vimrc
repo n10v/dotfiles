@@ -19,12 +19,16 @@ set noswapfile         " No swp files
 set relativenumber     " Show numbers relative to current line
 set shiftwidth=2       " Number of spaces inserted for indentation
 set softtabstop=2      " Number of columns that will be added when you hit Tab in insert mode
-set showmode				   " Show the current mode
+set showmode           " Show the current mode
 set tabstop=2          " Number of columns a tab counts for
 set ttyfast            " Indicate fast terminal conn for faster redraw
 set ttyscroll=3        " Speedup scrolling
 set visualbell         " Set bell off
+set t_vb=
 set wildmenu           " Enhance command-line completion
+
+" Execute previous command in the right pane of tmux
+nmap <Leader>r :!tmux send-keys -t right UP C-j <CR><CR>
 
 " Do not show matching brackets by flickering
 let loaded_matchparen=1
@@ -63,9 +67,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'ervandew/supertab'
+Plugin 'junegunn/fzf.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -85,6 +89,7 @@ let g:go_list_type = "quickfix"
 
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>i <Plug>(go-info)
+
 au FileType go setl sw=2 sts=2 noexpandtab
 
 " :GoDef but opens in a vertical split
@@ -93,8 +98,7 @@ autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
 autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
 
 " Open :GoDecls with ctrl-g
-nmap <C-g> :GoDecls<cr>
-imap <C-g> <esc>:<C-u>GoDecls<cr>
+nmap <C-g> :GoDecls<CR>
 "------- End Vim-Go settings ---
 
 "------- Supertab settings -------
@@ -106,9 +110,15 @@ let g:SuperTabMappingBackward = "<s-nil>"
 "------- Tagbar settings -------
 nnoremap <Leader>tb :TagbarToggle<CR>
 "------- End Tagbar settings ---
-"
+
+"------- FZF settings -------
+set rtp+=/usr/local/opt/fzf
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+"------- End FZF settings ---
+
 "------- Java Autocomplete settings -------
 if has("autocmd")
-	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+  autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 endif
 "------- End Java Autocomplete settings ---

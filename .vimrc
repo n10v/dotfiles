@@ -28,6 +28,7 @@ set wildmenu           " Enhance command-line completion
 
 " Execute previous command in the right pane of tmux
 nmap <Leader>r :!tmux send-keys -t right UP C-j <CR><CR>
+nmap <Leader>f :!tmux send-keys -t bottom-right UP C-j <CR><CR>
 
 " Do not show matching brackets by flickering
 let loaded_matchparen=1

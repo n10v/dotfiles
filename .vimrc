@@ -87,15 +87,10 @@ let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>d <Plug>(go-def)
 au FileType go nmap <Leader>i <Plug>(go-info)
 
 au FileType go setl sw=2 sts=2 noexpandtab
-
-" :GoDef but opens in a vertical split
-autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
-" :GoDef but opens in a horizontal split
-autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
 
 " Open :GoDecls with ctrl-g
 nmap <C-g> :GoDecls<CR>

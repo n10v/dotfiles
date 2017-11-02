@@ -69,7 +69,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'fatih/vim-go'
 Plugin 'ervandew/supertab'
-Plugin 'junegunn/fzf.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -111,11 +111,10 @@ let g:SuperTabMappingBackward = "<s-nil>"
 nnoremap <Leader>tb :TagbarToggle<CR>
 "------- End Tagbar settings ---
 
-"------- FZF settings -------
-set rtp+=/usr/local/opt/fzf
-nnoremap <C-p> :Files<CR>
-nnoremap <Leader>b :Buffers<CR>
-"------- End FZF settings ---
+"------- ctrlp settings -------
+nnoremap <C-p> :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+"------- End ctrlp settings ---
 
 "------- Java Autocomplete settings -------
 if has("autocmd")

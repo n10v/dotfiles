@@ -65,3 +65,18 @@ function digga() {
 function gofatty() {
 	eval `go build -work -a 2>&1` && find $WORK -type f -name "*.a" | xargs -I{} du -hxs "{}" | gsort -rh | sed -e s:${WORK}/::g
 }
+
+# fzf
+function cf() {
+  local path="$(tree -dfi | fzf)";
+  if [ "$path" != "" ]; then
+    cd $path;
+  fi
+}
+
+function vf() {
+  local path="$(fzf)";
+  if [ "$path" != "" ]; then
+    vim $path
+  fi
+}

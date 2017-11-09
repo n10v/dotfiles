@@ -67,9 +67,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'fatih/vim-go'
-Plugin 'ervandew/supertab'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -77,6 +77,16 @@ Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin on
 "------- End Vundle settings ---
+
+"------- ctrlp settings -------
+nnoremap <C-p> :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|node_modules\|log\|tmp$',
+  \ 'file': '\.DS_Store$'
+\ }
+"------- End ctrlp settings ---
 
 "------- Vim-Go settings -------
 let g:go_highlight_functions = 1
@@ -98,6 +108,7 @@ nmap <C-g> :GoDecls<CR>
 
 "------- Supertab settings -------
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabClosePreviewOnPopupClose = 1
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 let g:SuperTabMappingBackward = "<s-nil>"
 "------- End Supertab settings ---
@@ -105,11 +116,6 @@ let g:SuperTabMappingBackward = "<s-nil>"
 "------- Tagbar settings -------
 nnoremap <Leader>tb :TagbarToggle<CR>
 "------- End Tagbar settings ---
-
-"------- ctrlp settings -------
-nnoremap <C-p> :CtrlP<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
-"------- End ctrlp settings ---
 
 "------- Java Autocomplete settings -------
 if has("autocmd")

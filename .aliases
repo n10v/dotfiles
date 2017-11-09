@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 alias y="youtube-dl --buffer-size=16K -o '~/Downloads/%(title)s.%(ext)s'"
-alias n=nehm
+alias n="nehm"
 alias gometalinter="gometalinter -D 'vetshadow' -E 'misspell' -E 'unparam' -E 'unused' --cyclo-over=15 --deadline=2m --vendor"
+alias fzf="fzf --query='!node_modules !temp !.DS_Store !.lock$ ' --height 29% --border"
 
 # ls
 export LSCOLORS=ExFxCxDxBxegedabagacad

@@ -37,7 +37,7 @@ function server() {
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
 function tre() {
-	tree -aC -I '.git|node_modules|.Trash' --dirsfirst "$@" | less -FRNX;
+	tree -aC -I '.git|node_modules|.Trash|temp' --dirsfirst "$@" | less -FRNX;
 }
 
 # Recursively replace old string with new string

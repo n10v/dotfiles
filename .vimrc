@@ -30,9 +30,6 @@ set wildmenu           " Enhance command-line completion
 nmap <Leader>r :!tmux send-keys -t right UP C-j <CR><CR>
 nmap <Leader>f :!tmux send-keys -t bottom-right UP C-j <CR><CR>
 
-" Do not show matching brackets by flickering
-let loaded_matchparen=1
-
 " Insert tab literal with Shift-Tab
 inoremap <S-Tab> <C-V><Tab>
 

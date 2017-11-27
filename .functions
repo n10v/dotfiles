@@ -62,13 +62,13 @@ function gofatty() {
 function cf() {
   local path="$(tree -dfi | fzf)";
   if [ "$path" != "" ]; then
-    cd $path;
+    cd "$path";
   fi
 }
 
 function vf() {
   local path="$(fzf)";
   if [ "$path" != "" ]; then
-    vim $path
+    vim "$path";
   fi
 }

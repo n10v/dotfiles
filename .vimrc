@@ -67,7 +67,11 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
+Plugin 'flowtype/vim-flow'
 Plugin 'majutsushi/tagbar'
+Plugin 'mxw/vim-jsx'
+Plugin 'isRuslan/vim-es6'
+Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -85,7 +89,14 @@ let g:ctrlp_custom_ignore = {
 \ }
 "------- End ctrlp settings ---
 
-"------- Vim-Go settings -------
+"------- supertab settings -------
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabMappingBackward = "<s-nil>"
+"------- End supertab settings ---
+
+"------- vim-go settings -------
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -101,18 +112,28 @@ au FileType go setl sw=2 sts=2 noexpandtab
 
 " Open :GoDecls with ctrl-g
 nmap <C-g> :GoDecls<CR>
-"------- End Vim-Go settings ---
+"------- End vim-go settings ---
 
-"------- Supertab settings -------
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabClosePreviewOnPopupClose = 1
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-let g:SuperTabMappingBackward = "<s-nil>"
-"------- End Supertab settings ---
+"------- vim-flow settings -------
+"Use locally installed flow
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+    let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:flow#flowpath = local_flow
+endif
+
+let g:flow#enable = 0
+"------- End vim-flow settings -------
 
 "------- Tagbar settings -------
 nnoremap <Leader>tb :TagbarToggle<CR>
 "------- End Tagbar settings ---
+
+"------- vim-javascript settings -------
+let g:javascript_plugin_flow = 1
+"------- End vim-javascript settings -------
 
 "------- Java Autocomplete settings -------
 if has("autocmd")

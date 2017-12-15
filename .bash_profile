@@ -27,4 +27,3 @@ shopt -s histappend
 
 # Correct cd mispells
 shopt -s cdspell
-

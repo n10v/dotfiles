@@ -70,5 +70,6 @@ brew cask cleanup
 
 echo "Install manually:"
 echo "* Go"
+echo "* NVM"
 echo "* Pocket"
 echo "* Syncthing"

@@ -49,7 +49,6 @@ set showbreak=>\ \ \
 " Colorscheme
 syntax enable
 set t_Co=256
-set guifont=Menlo:h14
 set background=light
 colorscheme macvim
 

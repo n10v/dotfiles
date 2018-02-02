@@ -51,6 +51,7 @@ brew cask install vlc
 # Install some dev tools
 brew install ctags
 brew install curl
+brew install ffmpeg
 brew install fzf
 brew install git
 brew install graphviz # Need for go tool pprof

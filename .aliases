@@ -8,7 +8,7 @@ alias cloc="cloc --exclude-dir=node_modules,static"
 
 # ls
 export LSCOLORS=ExFxCxDxBxegedabagacad
-alias ls="ls -G"
+alias ls="ls -Gh"
 alias lsa="ls -a" # all files inc dotfile
 alias lsl="ls -lF" # all files, in long format
 alias lsla="ls -laF" # all files inc dotfiles, in long format

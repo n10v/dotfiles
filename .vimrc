@@ -83,7 +83,7 @@ nnoremap <C-p> :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|node_modules\|tmp\|temp$',
+  \ 'dir':  '\.git$\|node_modules\|tmp\|temp\|vendor$',
   \ 'file': '\.DS_Store$'
 \ }
 "------- End ctrlp settings ---

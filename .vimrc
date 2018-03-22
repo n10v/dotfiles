@@ -71,6 +71,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'mxw/vim-jsx'
 Plugin 'isRuslan/vim-es6'
 Plugin 'pangloss/vim-javascript'
+Plugin 'sbdchd/neoformat'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -132,6 +133,9 @@ nnoremap <Leader>tb :TagbarToggle<CR>
 
 "------- vim-javascript settings -------
 let g:javascript_plugin_flow = 1
+autocmd FileType javascript set formatprg=prettier\ --stdin\ --trailing-comma\ es5
+autocmd BufWritePre *.js Neoformat
+let g:neoformat_try_formatprg = 1
 "------- End vim-javascript settings -------
 
 "------- Java Autocomplete settings -------

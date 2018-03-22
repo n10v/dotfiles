@@ -4,7 +4,7 @@ alias y="youtube-dl --buffer-size=16K -o '~/Downloads/%(title)s.%(ext)s' -f 'bes
 alias n="nehm"
 alias gometalinter="gometalinter -D 'vetshadow' -E 'misspell' -E 'unparam' -E 'unused' --cyclo-over=15 --deadline=2m --vendor"
 alias fzf="fzf --query='!node_modules !temp !.DS_Store !.lock$ ' --height 29% --border"
-alias cloc="cloc --exclude-dir=node_modules,static"
+alias cloc="cloc --exclude-dir=node_modules,static,vendor"
 
 # ls
 export LSCOLORS=ExFxCxDxBxegedabagacad

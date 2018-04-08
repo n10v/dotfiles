@@ -64,14 +64,17 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'flowtype/vim-flow'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mxw/vim-jsx'
 Plugin 'isRuslan/vim-es6'
 Plugin 'pangloss/vim-javascript'
 Plugin 'sbdchd/neoformat'
+Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -136,10 +139,13 @@ let g:javascript_plugin_flow = 1
 autocmd FileType javascript set formatprg=prettier\ --stdin\ --trailing-comma\ es5
 autocmd BufWritePre *.js Neoformat
 let g:neoformat_try_formatprg = 1
+
+" set filetypes as typescript.jsx
+autocmd BufNewFile,BufRead *.ts,*.tsx,*.jsx set filetype=typescript.jsx
 "------- End vim-javascript settings -------
 
-"------- Java Autocomplete settings -------
-if has("autocmd")
-  autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-endif
-"------- End Java Autocomplete settings ---
+"------- UltiSnips settings -------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"------- End UltiSnips settings ---

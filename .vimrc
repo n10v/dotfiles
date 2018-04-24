@@ -5,6 +5,7 @@ set clipboard=unnamed  " Use the OS clipboard by default (on versions compiled w
 set cursorline         " Highlight current line
 set encoding=utf-8     " Set default encoding to UTF-8
 set expandtab          " Insert space characters whenever the tab key is pressed
+set exrc               " Enable project-specific .vimrc
 set ff=unix            " Unix end of file
 set hlsearch           " Highlight found searches
 set ignorecase         " Search case insensitive...
@@ -69,11 +70,9 @@ Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'flowtype/vim-flow'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'mxw/vim-jsx'
 Plugin 'isRuslan/vim-es6'
 Plugin 'pangloss/vim-javascript'
-Plugin 'sbdchd/neoformat'
+Plugin 'prettier/vim-prettier'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -130,22 +129,21 @@ endif
 let g:flow#enable = 0
 "------- End vim-flow settings -------
 
-"------- Tagbar settings -------
-nnoremap <Leader>tb :TagbarToggle<CR>
-"------- End Tagbar settings ---
-
-"------- vim-javascript settings -------
+"------- Javascript settings -------
 let g:javascript_plugin_flow = 1
-autocmd FileType javascript set formatprg=prettier\ --stdin\ --trailing-comma\ es5
-autocmd BufWritePre *.js Neoformat
-let g:neoformat_try_formatprg = 1
+
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md Prettier
 
 " set filetypes as typescript.jsx
 autocmd BufNewFile,BufRead *.ts,*.tsx,*.jsx set filetype=typescript.jsx
 "------- End vim-javascript settings -------
 
 "------- UltiSnips settings -------
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "------- End UltiSnips settings ---
+
+set secure " Disable unsafe commands in project-specific .vimrc files.
+

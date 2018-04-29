@@ -58,7 +58,7 @@ function gofatty() {
 	eval `go build -work -a 2>&1` && find $WORK -type f -name "*.a" | xargs -I{} du -hxs "{}" | gsort -rh | sed -e s:${WORK}/::g
 }
 
-# fzf
+# Open FZF and cd chosen directory.
 function cf() {
   local path="$(tree -dfi | fzf)";
   if [ "$path" != "" ]; then
@@ -66,6 +66,7 @@ function cf() {
   fi
 }
 
+# Open FZF and open chosen file in vim.
 function vf() {
   local path="$(fzf)";
   if [ "$path" != "" ]; then

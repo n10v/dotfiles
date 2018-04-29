@@ -56,30 +56,31 @@ colorscheme macvim
 " Enter automatically into the files directory
 autocmd BufEnter * silent! lcd %:p:h
 
-"------- Vundle settings --------
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"------- vim-plug settings --------
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'ervandew/supertab'
-Plugin 'fatih/vim-go'
-Plugin 'flowtype/vim-flow'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'isRuslan/vim-es6'
-Plugin 'pangloss/vim-javascript'
-Plugin 'prettier/vim-prettier'
-Plugin 'SirVer/ultisnips'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-call vundle#end()
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'fatih/vim-go'
+Plug 'isRuslan/vim-es6'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neco-syntax'
+Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'Valloric/YouCompleteMe'
+Plug 'zchee/deoplete-go', { 'do': 'make' }
+call plug#end()
 filetype plugin on
-"------- End Vundle settings ---
+"------- End vim-plug settings ---
 
 "------- ctrlp settings -------
 nnoremap <C-p> :CtrlP<CR>
@@ -91,12 +92,12 @@ let g:ctrlp_custom_ignore = {
 \ }
 "------- End ctrlp settings ---
 
-"------- supertab settings -------
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabClosePreviewOnPopupClose = 1
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-let g:SuperTabMappingBackward = "<s-nil>"
-"------- End supertab settings ---
+"------- deoplete settings -------
+let g:deoplete#enable_at_startup = 1
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"------- End deoplete settings ---
 
 "------- vim-go settings -------
 let g:go_highlight_functions = 1
@@ -116,34 +117,27 @@ au FileType go setl sw=2 sts=2 noexpandtab
 nmap <C-g> :GoDecls<CR>
 "------- End vim-go settings ---
 
-"------- vim-flow settings -------
-"Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
-endif
-if executable(local_flow)
-  let g:flow#flowpath = local_flow
-endif
-
-let g:flow#enable = 0
-"------- End vim-flow settings -------
-
 "------- Javascript settings -------
 let g:javascript_plugin_flow = 1
 
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md Prettier
-
-" set filetypes as typescript.jsx
-autocmd BufNewFile,BufRead *.ts,*.tsx,*.jsx set filetype=typescript.jsx
-"------- End vim-javascript settings -------
+"------- End Javascript settings -------
 
 "------- UltiSnips settings -------
 let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "------- End UltiSnips settings ---
+
+"------- YouCompleteMe settings -------
+" Use YouCompleteMe only as GoTo tool.
+" For autocomplete I like deoplete.
+let g:ycm_auto_trigger = 0
+
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>i :YcmCompleter GetType<CR>
+"------- End YouCompleteMe settings ---
 
 set secure " Disable unsafe commands in project-specific .vimrc files.
 

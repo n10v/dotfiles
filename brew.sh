@@ -32,6 +32,7 @@ fi;
 # Install some usual programs
 brew install youtube-dl
 brew cask install adapter
+brew cask install docker
 brew cask install firefox
 brew cask install gimp
 brew cask install google-chrome
@@ -40,7 +41,6 @@ brew cask install google-drive
 brew cask install imagealpha
 brew cask install imageoptim
 brew cask install opera
-brew cask install selfcontrol
 brew cask install skype
 brew cask install the-unarchiver
 brew cask install torbrowser
@@ -49,18 +49,24 @@ brew cask install tunnelblick
 brew cask install vlc
 
 # Install some dev tools
+brew install ack
+brew install cloc
 brew install ctags
 brew install curl
+brew install dep
 brew install ffmpeg
 brew install fzf
 brew install git
+brew install go
 brew install graphviz # Need for go tool pprof
+brew install node
 brew install openssl
 brew install python
 brew install python3
 brew install ruby
 brew install tmux
 brew install tree
+brew install yarn
 brew install vim --with-override-system-vi
 brew cask install iterm2
 brew cask install wireshark
@@ -70,7 +76,4 @@ brew cleanup
 brew cask cleanup
 
 echo "Install manually:"
-echo "* Go"
-echo "* NVM"
 echo "* Pocket"
-echo "* Syncthing"

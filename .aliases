@@ -43,7 +43,3 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
-
-# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
-# (useful when executing time-consuming commands)
-alias badge="tput bel"

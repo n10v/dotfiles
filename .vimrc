@@ -66,6 +66,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'isRuslan/vim-es6'
 Plug 'leafgarland/typescript-vim'
+Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'roxma/nvim-yarp'
@@ -116,6 +117,12 @@ au FileType go setl sw=2 sts=2 noexpandtab
 " Open :GoDecls with ctrl-g
 nmap <C-g> :GoDecls<CR>
 "------- End vim-go settings ---
+
+"------- ack.vim settings -------
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev Ag Ack
+"------- End ack.vim settings ---
 
 "------- Javascript settings -------
 let g:javascript_plugin_flow = 1

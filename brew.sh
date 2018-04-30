@@ -49,7 +49,6 @@ brew cask install tunnelblick
 brew cask install vlc
 
 # Install some dev tools
-brew install ack
 brew install cloc
 brew install ctags
 brew install curl
@@ -64,6 +63,7 @@ brew install openssl
 brew install python
 brew install python3
 brew install ruby
+brew install the_silver_searcher
 brew install tmux
 brew install tree
 brew install yarn

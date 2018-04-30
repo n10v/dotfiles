@@ -44,7 +44,7 @@ function tre() {
 # in all files of current directory (except in ./.git directory).
 # First argument - old string, second argument - new string.
 function recreplace() {
-	grep -lR --exclude-dir .git "$1" . | xargs sed -i "" "s|$1|$2|g"
+	ag -lr "$1" . | xargs sed -i "" "s|$1|$2|g"
 }
 
 # Run `dig` and display the most useful info.

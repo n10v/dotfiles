@@ -6,3 +6,6 @@ export EDITOR=vim
 # Increase Bash history size. Allow 10000 entries; the default is 500.
 export HISTSIZE='10000';
 export HISTFILESIZE="${HISTSIZE}";
+
+# Use fd for FZF.
+export FZF_DEFAULT_COMMAND='fd --type f'

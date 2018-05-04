@@ -61,10 +61,11 @@ autocmd BufEnter * silent! lcd %:p:h
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'isRuslan/vim-es6'
+Plug 'junegunn/fzf.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
@@ -83,15 +84,19 @@ call plug#end()
 filetype plugin on
 "------- End vim-plug settings ---
 
-"------- ctrlp settings -------
-nnoremap <C-p> :CtrlP<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
+"------- fzf settings -------
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
 
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|node_modules\|tmp\|temp\|vendor$',
-  \ 'file': '\.DS_Store$'
-\ }
-"------- End ctrlp settings ---
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+
+nnoremap <C-p> :ProjectFiles<CR>
+nnoremap <Leader>b :Buffer<CR>
+"------- End fzf settings ---
 
 "------- deoplete settings -------
 let g:deoplete#enable_at_startup = 1

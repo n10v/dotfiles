@@ -68,6 +68,7 @@ brew install tmux
 brew install tree
 brew install yarn
 brew install vim --with-override-system-vi
+brew install z
 brew cask install iterm2
 brew cask install wireshark
 

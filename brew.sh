@@ -53,12 +53,15 @@ brew install cloc
 brew install ctags
 brew install curl
 brew install dep
+brew install fd
 brew install ffmpeg
 brew install fzf
 brew install git
 brew install go
 brew install graphviz # Need for go tool pprof
+brew install httpie
 brew install node
+brew install ngrok
 brew install openssl
 brew install python
 brew install python3

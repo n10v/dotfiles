@@ -101,19 +101,29 @@ call plug#end()
 filetype plugin on
 "------- End vim-plug settings ---
 
+function! Find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+function! CD_git_root()
+  let l:root = Find_git_root()
+  execute 'cd' l:root
+endfunction
+
 "------- fzf settings -------
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
-function! s:find_git_root()
-  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
-endfunction
-
-command! ProjectFiles execute 'Files' s:find_git_root()
+command! ProjectFiles execute 'Files' Find_git_root()
 
 nnoremap <C-p> :ProjectFiles<CR>
 nnoremap <Leader>b :Buffer<CR>
 "------- End fzf settings ---
+
+"------- Far settings -------
+let g:far#source = 'ag'
+let g:far#cwd = Find_git_root()
+"------- End Far settings -------
 
 "------- deoplete settings -------
 let g:deoplete#enable_at_startup = 1
@@ -142,8 +152,8 @@ nmap <C-g> :GoDecls<CR>
 
 "------- ack.vim settings -------
 let g:ackprg = 'ag --vimgrep --smart-case'
-cnoreabbrev ag Ack
-cnoreabbrev Ag Ack
+cnoreabbrev ag Ack!
+cnoreabbrev Ag Ack!
 "------- End ack.vim settings ---
 
 "------- Javascript settings -------

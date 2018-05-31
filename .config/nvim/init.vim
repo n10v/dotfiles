@@ -78,7 +78,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug '/usr/local/opt/fzf'
 Plug 'brooth/far.vim'
-Plug 'd11wtq/macvim256.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'HerringtonDarkholme/yats.vim'

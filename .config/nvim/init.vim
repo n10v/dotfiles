@@ -84,7 +84,7 @@ Plug 'fatih/vim-go'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'junegunn/fzf.vim'
-" Plug 'mhartington/nvim-typescript'
+Plug 'mhartington/nvim-typescript'
 Plug 'mileszs/ack.vim'
 Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
@@ -95,7 +95,6 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 call plug#end()
 filetype plugin on
@@ -168,15 +167,6 @@ let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "------- End UltiSnips settings ---
-
-"------- YouCompleteMe settings -------
-" Use YouCompleteMe only as GoTo tool.
-" For autocomplete I like deoplete.
-let g:ycm_auto_trigger = 0
-
-nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>i :YcmCompleter GetType<CR>
-"------- End YouCompleteMe settings ---
 
 set secure " Disable unsafe commands in project-specific .vimrc files.
 

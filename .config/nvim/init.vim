@@ -1,3 +1,5 @@
+language en_US " Force english language
+
 set autoindent         " Enable autoindent
 set backspace=2        " Make backspace work like most other apps
 set colorcolumn=80     " Set up a ruler at 80 symbols
@@ -7,12 +9,15 @@ set encoding=utf-8     " Set default encoding to UTF-8
 set expandtab          " Insert space characters whenever the tab key is pressed
 set exrc               " Enable project-specific .vimrc
 set ff=unix            " Unix end of file
+set guicursor=         " Disable cursor-styling
+set history=1000       " Store a ton of history (default is 20)
 set hlsearch           " Highlight found searches
 set ignorecase         " Search case insensitive...
 set smartcase          " ... but not it begins with upper case
 set incsearch          " Shows the match while typing
 set lazyredraw         " Wait to redraw
 let mapleader = ','    " Set leader shortcut to a comma ','
+set mousehide          " Hide the mouse cursor while typing
 set number             " Show line numbers
 set nocompatible       " Enables us Vim specific features
 set noswapfile         " No swp files
@@ -20,12 +25,22 @@ set relativenumber     " Show numbers relative to current line
 set shiftwidth=2       " Number of spaces inserted for indentation
 set softtabstop=2      " Number of columns that will be added when you hit Tab in insert mode
 set showmode           " Show the current mode
+set splitright         " Puts new vsplit windows to the right of the current
+set splitbelow         " Puts new split windows to the bottom of the current
 set tabstop=2          " Number of columns a tab counts for
+set termguicolors
 set ttyfast            " Indicate fast terminal conn for faster redraw
-set ttyscroll=3        " Speedup scrolling
 set visualbell         " Set bell off
 set t_vb=
 set wildmenu           " Enhance command-line completion
+
+" Fix common typos
+cabbrev Q quit
+cabbrev W write
+
+" Wrapped lines goes down/up to next row, rather than next line in file.
+noremap j gj
+noremap k gk
 
 " Execute previous command in the right pane of tmux
 nmap <Leader>r :!tmux send-keys -t right UP C-j <CR><CR>
@@ -62,17 +77,19 @@ autocmd BufEnter * silent! lcd %:p:h
 call plug#begin('~/.vim/plugged')
 
 Plug '/usr/local/opt/fzf'
+Plug 'brooth/far.vim'
+Plug 'd11wtq/macvim256.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'junegunn/fzf.vim'
-Plug 'leafgarland/typescript-vim'
+" Plug 'mhartington/nvim-typescript'
 Plug 'mileszs/ack.vim'
+Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-syntax'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-commentary'

@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-alias y="youtube-dl --buffer-size=16K -o '~/Downloads/%(title)s.%(ext)s' -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
-alias y720="youtube-dl --buffer-size=16K -o '~/Downloads/%(title)s.%(ext)s' -f 'bestvideo[height<=720]+bestaudio/best[height<=720]'"
-alias n="nehm"
-alias gometalinter="gometalinter -D 'vetshadow' -E 'misspell' -E 'unparam' -E 'unused' --cyclo-over=15 --deadline=2m --vendor"
-alias fzf="fzf --query='!node_modules !temp !.DS_Store !.lock$ ' --height 29% --border"
+alias ag="ag --ignore-dir node_modules --ignore-dir temp"
 alias cloc="cloc --exclude-dir=node_modules,static,vendor"
+alias fzf="fzf --query='!node_modules !temp !.DS_Store !.lock$ ' --height 29% --border"
+alias gometalinter="gometalinter -D 'vetshadow' -E 'misspell' -E 'unparam' -E 'unused' --cyclo-over=15 --deadline=2m --vendor"
+alias n="nehm"
+alias rm="safe-rm"
+alias rt="trash"
+alias youtube-dl="youtube-dl --buffer-size=16K --no-playlist -o '~/Downloads/%(title)s.%(ext)s'"
+alias y720="youtube-dl -f 'bestvideo[height<=720]+bestaudio/best[height<=720]'"
+alias y="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
+alias vim="nvim"
 
 # ls
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -38,3 +43,4 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+

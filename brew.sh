@@ -30,6 +30,7 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
 fi;
 
 # Install some usual programs
+brew install safe-rm
 brew install youtube-dl
 brew cask install adapter
 brew cask install docker
@@ -60,6 +61,7 @@ brew install git
 brew install go
 brew install graphviz # Need for go tool pprof
 brew install httpie
+brew install neovim
 brew install node
 brew install ngrok
 brew install openssl
@@ -70,7 +72,6 @@ brew install the_silver_searcher
 brew install tmux
 brew install tree
 brew install yarn
-brew install vim --with-override-system-vi
 brew install z
 brew cask install iterm2
 brew cask install wireshark
@@ -81,3 +82,4 @@ brew cask cleanup
 
 echo "Install manually:"
 echo "* Pocket"
+echo "* github.com/sindresorhus/macos-trash"

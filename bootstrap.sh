@@ -7,12 +7,14 @@ function doIt() {
 	rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude ".macos" \
+		--exclude "LICENSE" \
+		--exclude "README.md" \
 		--exclude "bootstrap.sh" \
 		--exclude "brew.sh" \
-		--exclude "update.sh" \
-		--exclude "README.md" \
-		--exclude "LICENSE" \
+		--exclude "neovim.sh" \
+		--exclude "npm.sh" \
 		--exclude "photo.png" \
+		--exclude "update.sh" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
 }

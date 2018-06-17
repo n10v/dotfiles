@@ -1,5 +1,4 @@
-language en_US " Force english language
-
+language en_US         " Force english language
 set autoindent         " Enable autoindent
 set backspace=2        " Make backspace work like most other apps
 set colorcolumn=80     " Set up a ruler at 80 symbols
@@ -28,7 +27,7 @@ set showmode           " Show the current mode
 set splitright         " Puts new vsplit windows to the right of the current
 set splitbelow         " Puts new split windows to the bottom of the current
 set tabstop=2          " Number of columns a tab counts for
-set termguicolors
+set termguicolors      " True colors
 set ttyfast            " Indicate fast terminal conn for faster redraw
 set visualbell         " Set bell off
 set t_vb=
@@ -80,10 +79,10 @@ Plug '/usr/local/opt/fzf'
 Plug 'brooth/far.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'junegunn/fzf.vim'
-Plug 'mhartington/nvim-typescript'
+Plug 'leafgarland/typescript-vim'
+Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'mileszs/ack.vim'
 Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
@@ -94,6 +93,7 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'Valloric/YouCompleteMe'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 call plug#end()
 filetype plugin on
@@ -166,6 +166,16 @@ let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "------- End UltiSnips settings ---
+
+"------- YouCompleteMe settings -------
+" Use ycm only for diagnostics and only for Typescript.
+let g:ycm_auto_trigger = 0
+let g:ycm_filetype_whitelist = { 'typescript': 1 }
+
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>g :YcmShowDetailedDiagnostics<CR>
+nnoremap <leader>i :YcmCompleter GetType<CR>
+"------- End YouCompleteMe settings ---
 
 set secure " Disable unsafe commands in project-specific .vimrc files.
 

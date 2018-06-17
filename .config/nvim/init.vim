@@ -89,7 +89,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-syntax'
-Plug 'SirVer/ultisnips'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -161,11 +162,9 @@ let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md Prettier
 "------- End Javascript settings -------
 
-"------- UltiSnips settings -------
-let g:UltiSnipsExpandTrigger="<c-f>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"------- End UltiSnips settings ---
+"------- neosnippet settings -------
+imap <C-f> <Plug>(neosnippet_expand_or_jump)
+"------- End neosnippet settings ---
 
 "------- YouCompleteMe settings -------
 " Use ycm only for diagnostics and only for Typescript.

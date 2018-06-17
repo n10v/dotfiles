@@ -172,7 +172,7 @@ let g:ycm_auto_trigger = 0
 let g:ycm_filetype_whitelist = { 'typescript': 1 }
 
 nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>g :YcmShowDetailedDiagnostics<CR>
+nnoremap <leader>g :YcmShowDetailedDiagnostic<CR>
 nnoremap <leader>i :YcmCompleter GetType<CR>
 "------- End YouCompleteMe settings ---
 

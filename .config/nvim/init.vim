@@ -87,6 +87,7 @@ Plug 'mileszs/ack.vim'
 Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
+Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neosnippet.vim'
@@ -124,11 +125,25 @@ let g:far#source = 'ag'
 let g:far#cwd = Find_git_root()
 "------- End Far settings -------
 
+"------- echodoc settings -------
+let g:echodoc#enable_at_startup = 1
+set noshowmode
+"------- End echodoc settings ---
+
 "------- deoplete settings -------
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('auto_complete_delay', 30)
+call deoplete#custom#source('_', 'max_menu_width', 160)
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Silence the  messages in the command line
+" such as 'The only match', 'Pattern not found', 'Back at original", etc.
+set shortmess+=c
+
+" Show neosnippet first
+call deoplete#custom#source('neosnippet', 'rank', 1010)
+
+" Don't show doc window
+set completeopt-=preview
 "------- End deoplete settings ---
 
 "------- vim-go settings -------

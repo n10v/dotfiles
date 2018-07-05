@@ -76,7 +76,6 @@ autocmd BufEnter * silent! lcd %:p:h
 call plug#begin('~/.vim/plugged')
 
 Plug '/usr/local/opt/fzf'
-Plug 'brooth/far.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'isRuslan/vim-es6'
@@ -84,7 +83,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'mileszs/ack.vim'
-Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'Shougo/echodoc.vim'
@@ -118,12 +116,8 @@ command! ProjectFiles execute 'Files' Find_git_root()
 
 nnoremap <C-p> :ProjectFiles<CR>
 nnoremap <Leader>b :Buffer<CR>
+nnoremap <Leader>w :Windows<CR>
 "------- End fzf settings ---
-
-"------- Far settings -------
-let g:far#source = 'ag'
-let g:far#cwd = Find_git_root()
-"------- End Far settings -------
 
 "------- echodoc settings -------
 let g:echodoc#enable_at_startup = 1
@@ -138,9 +132,6 @@ call deoplete#custom#source('_', 'max_menu_width', 160)
 " Silence the  messages in the command line
 " such as 'The only match', 'Pattern not found', 'Back at original", etc.
 set shortmess+=c
-
-" Show neosnippet first
-call deoplete#custom#source('neosnippet', 'rank', 1010)
 
 " Don't show doc window
 set completeopt-=preview
@@ -182,9 +173,10 @@ imap <C-f> <Plug>(neosnippet_expand_or_jump)
 "------- End neosnippet settings ---
 
 "------- YouCompleteMe settings -------
-" Use ycm only for diagnostics and only for Typescript.
+" Use ycm only for diagnostics and GoTo* and only for Typescript.
 let g:ycm_auto_trigger = 0
 let g:ycm_filetype_whitelist = { 'typescript': 1 }
+let g:ycm_enable_diagnostic_highlighting = 0
 
 nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>g :YcmShowDetailedDiagnostic<CR>

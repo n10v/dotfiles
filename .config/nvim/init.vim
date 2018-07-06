@@ -137,6 +137,13 @@ set shortmess+=c
 set completeopt-=preview
 "------- End deoplete settings ---
 
+"------- nvim-typescript settings -------
+let g:nvim_typescript#max_completion_detail = 50
+
+nnoremap <leader>d :TSDefPreview<CR>
+nnoremap <leader>i :TSType<CR>
+"------- End nvim-typescript settings ---
+
 "------- vim-go settings -------
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -173,14 +180,12 @@ imap <C-f> <Plug>(neosnippet_expand_or_jump)
 "------- End neosnippet settings ---
 
 "------- YouCompleteMe settings -------
-" Use ycm only for diagnostics and GoTo* and only for Typescript.
+" Use ycm only for diagnostics and only for Typescript.
 let g:ycm_auto_trigger = 0
 let g:ycm_filetype_whitelist = { 'typescript': 1 }
 let g:ycm_enable_diagnostic_highlighting = 0
 
-nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>g :YcmShowDetailedDiagnostic<CR>
-nnoremap <leader>i :YcmCompleter GetType<CR>
 "------- End YouCompleteMe settings ---
 
 set secure " Disable unsafe commands in project-specific .vimrc files.

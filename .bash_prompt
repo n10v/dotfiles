@@ -2,11 +2,7 @@
 
 # Minimalistic version of https://github.com/mathiasbynens/dotfiles/.bash_prompt.
 
-if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-	export TERM='gnome-256color';
-elif infocmp xterm-256color >/dev/null 2>&1; then
-	export TERM='xterm-256color';
-fi;
+export TERM='xterm-256color';
 
 prompt_git() {
 	local s='';
@@ -58,11 +54,10 @@ black="\e[1;30m";
 blue="\e[1;34m";
 
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\n"; # newline
-PS1+="at \h"; # host
-PS1+=" in \w"; # working directory full path
-PS1+=" \$(prompt_git)"; # Git repository details
-PS1+="\n";
-PS1+="\[${blue}\]\$ \[${reset}\]"; # `$` and reset color
+PS1="\nat \h in \w \$(prompt_git)\n\[${blue}\]\$ \[${reset}\]";
 export PS1;
+
+function disable_git_prompt() {
+  PS1="\nat \h in \w\n\[${blue}\]\$ \[${reset}\]";
+  export PS1;
+}

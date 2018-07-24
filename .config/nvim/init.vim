@@ -121,7 +121,7 @@ nnoremap <Leader>w :Windows<CR>
 
 "------- echodoc settings -------
 let g:echodoc#enable_at_startup = 1
-set noshowmode
+set cmdheight=2
 "------- End echodoc settings ---
 
 "------- deoplete settings -------

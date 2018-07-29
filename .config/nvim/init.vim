@@ -93,7 +93,6 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 call plug#end()
 filetype plugin on
@@ -178,15 +177,6 @@ autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*
 "------- neosnippet settings -------
 imap <C-f> <Plug>(neosnippet_expand_or_jump)
 "------- End neosnippet settings ---
-
-"------- YouCompleteMe settings -------
-" Use ycm only for diagnostics and only for Typescript.
-let g:ycm_auto_trigger = 0
-let g:ycm_filetype_whitelist = { 'typescript': 1 }
-let g:ycm_enable_diagnostic_highlighting = 0
-
-nnoremap <leader>g :YcmShowDetailedDiagnostic<CR>
-"------- End YouCompleteMe settings ---
 
 set secure " Disable unsafe commands in project-specific .vimrc files.
 

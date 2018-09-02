@@ -37,16 +37,9 @@ set wildmenu           " Enhance command-line completion
 cabbrev Q quit
 cabbrev W write
 
-" Wrapped lines goes down/up to next row, rather than next line in file.
-noremap j gj
-noremap k gk
-
 " Execute previous command in the right pane of tmux
 nmap <Leader>r :!tmux send-keys -t right UP C-j <CR><CR>
 nmap <Leader>f :!tmux send-keys -t bottom-right UP C-j <CR><CR>
-
-" Insert tab literal with Shift-Tab
-inoremap <S-Tab> <C-V><Tab>
 
 " Jump to next error with Ctrl-n and previous error with Ctrl-m. Close the "
 " quickfix window with <leader>a
@@ -76,11 +69,13 @@ autocmd BufEnter * silent! lcd %:p:h
 call plug#begin('~/.vim/plugged')
 
 Plug '/usr/local/opt/fzf'
-Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'junegunn/fzf.vim'
-Plug 'leafgarland/typescript-vim'
+Plug 'justinmk/vim-sneak'
+Plug 'krisajenkins/vim-projectlocal'
+Plug 'matze/vim-move'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
@@ -90,9 +85,12 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'schickling/vim-bufonly'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 call plug#end()
 filetype plugin on
@@ -100,11 +98,6 @@ filetype plugin on
 
 function! Find_git_root()
   return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
-endfunction
-
-function! CD_git_root()
-  let l:root = Find_git_root()
-  execute 'cd' l:root
 endfunction
 
 "------- fzf settings -------
@@ -134,13 +127,14 @@ set shortmess+=c
 
 " Don't show doc window
 set completeopt-=preview
+
+" Complete on tab
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 "------- End deoplete settings ---
 
 "------- nvim-typescript settings -------
 let g:nvim_typescript#max_completion_detail = 50
-
-nnoremap <leader>d :TSDefPreview<CR>
-nnoremap <leader>i :TSType<CR>
+let g:nvim_typescript#diagnosticsEnable = 0
 "------- End nvim-typescript settings ---
 
 "------- vim-go settings -------
@@ -163,8 +157,8 @@ nmap <C-g> :GoDecls<CR>
 
 "------- ack.vim settings -------
 let g:ackprg = 'ag --vimgrep --smart-case'
-cnoreabbrev ag Ack!
-cnoreabbrev Ag Ack!
+
+command! -nargs=1 Ag execute "Ack! <args> " . Find_git_root()
 "------- End ack.vim settings ---
 
 "------- Javascript settings -------
@@ -177,6 +171,34 @@ autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*
 "------- neosnippet settings -------
 imap <C-f> <Plug>(neosnippet_expand_or_jump)
 "------- End neosnippet settings ---
+
+"------- vim-multiple-cursors settings -------
+let g:multi_cursor_use_default_mapping=0
+
+let g:multi_cursor_start_word_key      = '<C-c>'
+let g:multi_cursor_select_all_word_key = '<A-c>'
+let g:multi_cursor_start_key           = 'g<C-c>'
+let g:multi_cursor_select_all_key      = 'g<A-c>'
+let g:multi_cursor_next_key            = '<C-c>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+"------- End vim-multiple-cursors settings ---
+
+"------- ale settings -------
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
+
+let g:ale_lint_delay = 300
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
+let b:ale_linters = {'typescript.tsx': ['tsserver'], 'typescript': ['tsserver']}
+
+nnoremap <leader>d :ALEGoToDefinition<CR>
+nnoremap <leader>i :ALEHover<CR>
+nnoremap <leader>g :ALEDetail<CR>
+"------- End ale settings ---
 
 set secure " Disable unsafe commands in project-specific .vimrc files.
 

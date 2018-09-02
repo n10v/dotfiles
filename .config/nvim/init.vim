@@ -63,6 +63,10 @@ colorscheme macvim
 " Enter automatically into the files directory
 autocmd BufEnter * silent! lcd %:p:h
 
+" Make n/N always go in consistent directions:
+noremap <silent> n /<CR>
+noremap <silent> N ?<CR>
+
 "------- vim-plug settings --------
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
@@ -119,6 +123,8 @@ set cmdheight=2
 "------- deoplete settings -------
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete_delay', 30)
+call deoplete#custom#option('max_list', 50)
+call deoplete#custom#option('refresh_always', v:false)
 call deoplete#custom#source('_', 'max_menu_width', 160)
 
 " Silence the  messages in the command line
@@ -130,6 +136,7 @@ set completeopt-=preview
 
 " Complete on tab
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
 "------- End deoplete settings ---
 
 "------- nvim-typescript settings -------
@@ -192,6 +199,9 @@ let g:ale_linters_explicit = 1
 let g:ale_lint_delay = 300
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_save = 1
 
 let b:ale_linters = {'typescript.tsx': ['tsserver'], 'typescript': ['tsserver']}
 

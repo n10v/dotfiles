@@ -50,6 +50,7 @@ brew cask install tunnelblick
 brew cask install vlc
 
 # Install some dev tools
+brew install bat
 brew install cloc
 brew install ctags
 brew install curl
@@ -65,6 +66,7 @@ brew install neovim
 brew install node
 brew install ngrok
 brew install openssl
+brew install prettyping
 brew install python
 brew install python3
 brew install ruby

@@ -8,4 +8,4 @@ export HISTSIZE='10000';
 export HISTFILESIZE="${HISTSIZE}";
 
 # Use fd for FZF.
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs --type f'

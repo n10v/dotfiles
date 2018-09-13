@@ -58,18 +58,33 @@ function gofatty() {
 	eval `go build -work -a 2>&1` && find $WORK -type f -name "*.a" | xargs -I{} du -hxs "{}" | gsort -rh | sed -e s:${WORK}/::g
 }
 
-# Open FZF and cd chosen directory.
-function cf() {
+# FZF: cd chosen directory.
+cf() {
   local path="$(tree -dfi | fzf)";
   if [ "$path" != "" ]; then
     cd "$path";
   fi
 }
 
-# Open FZF and open chosen file in vim.
-function vf() {
+# FZF: open chosen file in vim.
+vf() {
   local path="$(fzf)";
   if [ "$path" != "" ]; then
     vim "$path";
   fi
 }
+
+# FZF: history.
+hf() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+# FZF: checkout git branch
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+

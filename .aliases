@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 alias ag="ag --ignore-dir node_modules --ignore-dir temp -U"
-alias cat="bat --theme=GitHub --style=header"
+alias cat="bat --theme=GitHub --style=grid,header"
 alias cloc="cloc --exclude-dir=node_modules,static,vendor"
+alias fd="fd --no-ignore-vcs"
 alias fzf="fzf --query='!node_modules !temp !.DS_Store !.lock$ ' --height 30% --border"
 alias gometalinter="gometalinter -D 'vetshadow' -E 'misspell' -E 'unparam' -E 'unused' --cyclo-over=15 --deadline=2m --vendor"
 alias n="nehm"

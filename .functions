@@ -88,7 +88,7 @@ hf() {
 }
 
 # FZF: checkout git branch
-fbr() {
+chf() {
   local branches branch
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&

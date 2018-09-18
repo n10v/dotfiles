@@ -27,6 +27,3 @@ shopt -s histappend
 
 # Correct cd mispells
 shopt -s cdspell
-
-# Settings for z.
-. /usr/local/etc/profile.d/z.sh

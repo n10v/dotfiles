@@ -74,7 +74,6 @@ brew install the_silver_searcher
 brew install tmux
 brew install tree
 brew install yarn
-brew install z
 brew cask install iterm2
 brew cask install wireshark
 

@@ -190,6 +190,22 @@ let g:multi_cursor_next_key            = '<C-c>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+
+" Disable Deoplete and Ale when selecting multiple cursors starts
+function! Multiple_cursors_before()
+    if exists('*deoplete#disable')
+        execute 'call deoplete#disable()'
+    endif
+    execute 'ALEToggle'
+endfunction
+
+" Enable Deoplete and Ale when selecting multiple cursors ends
+function! Multiple_cursors_after()
+    if exists('*deoplete#toggle')
+        execute 'call deoplete#toggle()'
+    endif
+    execute 'ALEToggle'
+  endfunction
 "------- End vim-multiple-cursors settings ---
 
 "------- ale settings -------

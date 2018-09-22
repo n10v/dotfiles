@@ -141,7 +141,7 @@ inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
 
 "------- nvim-typescript settings -------
 let g:nvim_typescript#max_completion_detail = 50
-let g:nvim_typescript#diagnosticsEnable = 0
+let g:nvim_typescript#diagnostics_enable = 0
 "------- End nvim-typescript settings ---
 
 "------- vim-go settings -------

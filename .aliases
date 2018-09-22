@@ -27,22 +27,12 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-# Always enable colored `grep` output and exclude .git and node_modules dir
-alias grep='grep --color=auto --exclude-dir .git --exclude-dir node_modules --exclude-dir temp'
-
-# Get week number
-alias week='date +%V'
-
 # Open url of origin remote git repo
 alias origin='git remote get-url origin | xargs open'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
-
-# Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"

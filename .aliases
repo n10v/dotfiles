@@ -18,9 +18,9 @@ alias vim="nvim"
 # ls
 export LSCOLORS=ExFxCxDxBxegedabagacad
 alias ls="ls -Gh"
-alias lsa="ls -a" # all files inc dotfile
+alias lsa="ls -A" # all files inc dotfile
 alias lsl="ls -lF" # all files, in long format
-alias lsla="ls -laF" # all files inc dotfiles, in long format
+alias lsla="ls -lAF" # all files inc dotfiles, in long format
 
 # Quicker navigation
 alias ..="cd .."

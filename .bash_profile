@@ -9,10 +9,12 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-# bash completion
-bash_prefix="/usr/local"
-if [ -f $bash_prefix/etc/bash_completion ]; then
-	. $bash_prefix/etc/bash_completion
+# Bash completion
+if [ -f /usr/local/etc/bash_completion ]; then
+	. /usr/local/etc/bash_completion
+fi
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+  . /usr/local/share/bash-completion/bash_completion
 fi
 
 # Ignore duplicates and ls, bg ,fg, exit in history

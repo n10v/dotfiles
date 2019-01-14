@@ -68,5 +68,4 @@ brew cask install wireshark
 brew cleanup
 
 echo "Install manually:"
-echo "* Pocket"
 echo "* github.com/sindresorhus/macos-trash"

@@ -8,19 +8,12 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# Install native apps
-brew install caskroom/cask/brew-cask
-brew tap caskroom/versions
-
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 
 # Install Bash 4.
-# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
-# running `chsh`.
 brew install bash
-brew tap homebrew/versions
 brew install bash-completion2
 
 # Switch to using brew-installed bash as default shell
@@ -34,11 +27,10 @@ brew install safe-rm
 brew install youtube-dl
 brew cask install adapter
 brew cask install docker
+brew cask install dropbox
 brew cask install firefox
 brew cask install gimp
 brew cask install google-chrome
-brew cask install google-chrome-canary
-brew cask install google-drive
 brew cask install imagealpha
 brew cask install imageoptim
 brew cask install opera
@@ -46,7 +38,6 @@ brew cask install skype
 brew cask install the-unarchiver
 brew cask install torbrowser
 brew cask install transmission
-brew cask install tunnelblick
 brew cask install vlc
 
 # Install some dev tools
@@ -54,19 +45,15 @@ brew install bat
 brew install cloc
 brew install ctags
 brew install curl
-brew install dep
 brew install fd
 brew install ffmpeg
 brew install fzf
 brew install git
 brew install go
-brew install graphviz # Need for go tool pprof
 brew install httpie
 brew install neovim
 brew install node
-brew install ngrok
 brew install openssl
-brew install prettyping
 brew install python
 brew install python3
 brew install ruby
@@ -79,7 +66,6 @@ brew cask install wireshark
 
 # Cleanup
 brew cleanup
-brew cask cleanup
 
 echo "Install manually:"
 echo "* Pocket"

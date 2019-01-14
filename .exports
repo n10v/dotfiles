@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Use english language by default.
+export LANG=en_US
+
 # Make vim the default editor.
 export EDITOR=vim
 

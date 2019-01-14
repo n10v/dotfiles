@@ -74,8 +74,9 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
+# Save screenshots to ~/Screenshots
+mkdir ~/Screenshots
+defaults write com.apple.screencapture location ~/Screenshots
 
 ############################################################################
 # Finder                                                                   #
@@ -245,20 +246,6 @@ sudo mdutil -i on / > /dev/null
 
 # Rebuild the index from scratch
 sudo mdutil -E / > /dev/null
-
-############################################################################
-# Activity Monitor                                                         #
-############################################################################
-
-# Show the main window when launching Activity Monitor
-defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
-
-# Show all processes in Activity Monitor
-defaults write com.apple.ActivityMonitor ShowCategory -int 0
-
-# Sort Activity Monitor results by CPU usage
-defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
-defaults write com.apple.ActivityMonitor SortDirection -int 0
 
 ############################################################################
 # Photos                                                                   #

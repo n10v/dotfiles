@@ -54,10 +54,10 @@ black="\e[1;30m";
 blue="\e[1;34m";
 
 # Set the terminal title and prompt.
-PS1="\nat \h in \w \$(prompt_git)\n\[${blue}\]\$ \[${reset}\]";
+PS1="Finished on \t\n\nat \h in \w\n\[${blue}\]\$ \[${reset}\]";
 export PS1;
 
-function disable_git_prompt() {
-  PS1="\nat \h in \w\n\[${blue}\]\$ \[${reset}\]";
+function enable_git_prompt() {
+PS1="Finished on \t\n\nat \h in \w \$(prompt_git)\n\[${blue}\]\$ \[${reset}\]";
   export PS1;
 }

@@ -80,21 +80,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'krisajenkins/vim-projectlocal'
 Plug 'matze/vim-move'
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-syntax'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'schickling/vim-bufonly'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 call plug#end()
 filetype plugin on
@@ -139,11 +134,6 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
 "------- End deoplete settings ---
 
-"------- nvim-typescript settings -------
-let g:nvim_typescript#max_completion_detail = 50
-let g:nvim_typescript#diagnostics_enable = 0
-"------- End nvim-typescript settings ---
-
 "------- vim-go settings -------
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -162,22 +152,12 @@ au FileType go setl sw=2 sts=2 noexpandtab
 nmap <C-g> :GoDecls<CR>
 "------- End vim-go settings ---
 
-"------- ack.vim settings -------
-let g:ackprg = 'ag --vimgrep --smart-case'
-
-command! -nargs=1 Ag execute "Ack! <args> " . Find_git_root()
-"------- End ack.vim settings ---
-
 "------- Javascript settings -------
 let g:javascript_plugin_flow = 1
 
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md Prettier
 "------- End Javascript settings -------
-
-"------- neosnippet settings -------
-imap <C-f> <Plug>(neosnippet_expand_or_jump)
-"------- End neosnippet settings ---
 
 "------- vim-multiple-cursors settings -------
 let g:multi_cursor_use_default_mapping=0
@@ -191,40 +171,20 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-" Disable Deoplete and Ale when selecting multiple cursors starts
+" Disable Deoplete when selecting multiple cursors starts
 function! Multiple_cursors_before()
     if exists('*deoplete#disable')
         execute 'call deoplete#disable()'
     endif
-    execute 'ALEToggle'
 endfunction
 
-" Enable Deoplete and Ale when selecting multiple cursors ends
+" Enable Deoplete when selecting multiple cursors ends
 function! Multiple_cursors_after()
     if exists('*deoplete#toggle')
         execute 'call deoplete#toggle()'
     endif
-    execute 'ALEToggle'
   endfunction
 "------- End vim-multiple-cursors settings ---
-
-"------- ale settings -------
-" Only run linters named in ale_linters settings.
-let g:ale_linters_explicit = 1
-
-let g:ale_lint_delay = 300
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_save = 1
-
-let g:ale_linters = {'typescript.tsx': ['tsserver'], 'typescript': ['tsserver']}
-
-nnoremap <leader>d :ALEGoToDefinition<CR>
-nnoremap <leader>i :ALEHover<CR>
-nnoremap <leader>g :ALEDetail<CR>
-"------- End ale settings ---
 
 set secure " Disable unsafe commands in project-specific .vimrc files.
 

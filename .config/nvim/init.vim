@@ -1,4 +1,4 @@
-language en_US         " Force english language
+language en_US.utf8    " Force english language
 set autoindent         " Enable autoindent
 set backspace=2        " Make backspace work like most other apps
 set colorcolumn=80     " Set up a ruler at 80 symbols

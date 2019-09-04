@@ -22,47 +22,51 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash;
 fi;
 
-# Install some usual programs
-brew install safe-rm
-brew install youtube-dl
-brew cask install adapter
-brew cask install docker
-brew cask install dropbox
-brew cask install firefox
-brew cask install gimp
-brew cask install google-chrome
-brew cask install imagealpha
-brew cask install imageoptim
-brew cask install opera
-brew cask install skype
-brew cask install the-unarchiver
-brew cask install torbrowser
-brew cask install transmission
-brew cask install vlc
+brew install bat \
+             cloc \
+             ctags \
+             curl \
+             fd \
+             ffmpeg \
+             fzf \
+             git \
+             gnu-sed \
+             go \
+             httpie \
+             neovim \
+             node \
+             openssl \
+             python \
+             python3 \
+             pv \
+             ruby \
+             safe-rm \
+             the_silver_searcher \
+             tldr \
+             tmux \
+             tree \
+             yarn \
+             youtube-dl \
+             watch \
 
-# Install some dev tools
-brew install bat
-brew install cloc
-brew install ctags
-brew install curl
-brew install fd
-brew install ffmpeg
-brew install fzf
-brew install git
-brew install go
-brew install httpie
-brew install neovim
-brew install node
-brew install openssl
-brew install python
-brew install python3
-brew install ruby
-brew install the_silver_searcher
-brew install tmux
-brew install tree
-brew install yarn
-brew cask install iterm2
-brew cask install wireshark
+brew cask install adapter \
+                  docker \
+                  dropbox \
+                  firefox \
+                  gimp \
+                  google-chrome \
+                  imagealpha \
+                  imageoptim \
+                  iterm2 \
+                  kap \
+                  numi \
+                  opera \
+                  skype \
+                  the-unarchiver \
+                  torbrowser \
+                  transmission \
+                  vlc \
+                  wireshark \
 
 # Cleanup
 brew cleanup

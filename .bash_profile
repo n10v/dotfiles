@@ -1,4 +1,4 @@
-# Set vi keys for bash
+# Set vi keys for bash.
 set -o vi
 
 # Load the shell dotfiles, and then some:
@@ -9,23 +9,23 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-# Bash completion
-if [ -f /usr/local/etc/bash_completion ]; then
-	. /usr/local/etc/bash_completion
-fi
+# bash completion.
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
   . /usr/local/share/bash-completion/bash_completion
 fi
 
-# Ignore duplicates and ls, bg ,fg, exit in history
+# Ignore duplicates and ls, bg ,fg, exit in history.
 export HISTCONTROL="ignoredups"
 export HISTIGNORE="&:ls:[bf]g:exit"
 
-# Case-insensitive globbing (used in pathname expansion)
+# Case-insensitive globbing (used in pathname expansion).
 shopt -s nocaseglob
 
-# Append to history
+# Append to history.
 shopt -s histappend
 
-# Correct cd mispells
+# Correct cd mispells.
 shopt -s cdspell
+
+# Load rupa's z if installed.
+[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh

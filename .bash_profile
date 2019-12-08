@@ -29,3 +29,6 @@ shopt -s cdspell
 
 # Load rupa's z if installed.
 [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+
+# Load thefuck alias.
+eval $(thefuck --alias)

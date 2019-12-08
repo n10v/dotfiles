@@ -43,6 +43,7 @@ brew install \
              ruby \
              safe-rm \
              the_silver_searcher \
+             thefuck \
              tldr \
              tmux \
              tree \

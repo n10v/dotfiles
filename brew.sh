@@ -22,7 +22,8 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash;
 fi;
 
-brew install bat \
+brew install \
+             bat \
              cloc \
              ctags \
              curl \
@@ -49,7 +50,8 @@ brew install bat \
              youtube-dl \
              watch \
 
-brew cask install adapter \
+brew cask install \
+                  adapter \
                   docker \
                   dropbox \
                   firefox \

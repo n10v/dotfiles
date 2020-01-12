@@ -25,30 +25,25 @@ fi;
 brew install \
              bat \
              cloc \
-             ctags \
              curl \
              fd \
-             ffmpeg \
              fzf \
              git \
              gnu-sed \
              go \
-             httpie \
-             neovim \
              node \
              openssl \
              python \
              python3 \
-             pv \
              ruby \
              safe-rm \
              the_silver_searcher \
              thefuck \
              tldr \
-             tmux \
              tree \
              yarn \
              youtube-dl \
+             vim \
              watch \
 
 brew cask install \

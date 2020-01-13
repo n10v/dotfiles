@@ -35,7 +35,6 @@ brew install \
              openssl \
              python \
              python3 \
-             ruby \
              safe-rm \
              the_silver_searcher \
              thefuck \

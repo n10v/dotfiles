@@ -27,6 +27,7 @@ brew install \
              cloc \
              curl \
              fd \
+             ffmpeg \
              fzf \
              git \
              gnu-sed \

@@ -53,7 +53,7 @@ reset="\e[0m";
 blue="\e[38;5;4m";
 
 # Set the terminal title and prompt.
-PS1="\n\[${blue}\]\w\[${reset}\] ";
+PS1="\e[3mExited at \t\e[0m\n\n\[${blue}\]\w\[${reset}\] ";
 export PS1;
 
 function enable_git_prompt() {

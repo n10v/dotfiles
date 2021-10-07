@@ -12,7 +12,7 @@ brew upgrade
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 
-# Install Bash 4.
+# Install Bash 5.
 brew install bash
 brew install bash-completion2
 
@@ -24,23 +24,17 @@ fi;
 
 brew install \
              bat \
-             cloc \
              curl \
              fd \
-             ffmpeg \
-             fzf \
              git \
              gnu-sed \
              go \
              node \
              openssl \
              python \
-             python3 \
              safe-rm \
-             the_silver_searcher \
              thefuck \
              tldr \
-             tree \
              yarn \
              youtube-dl \
              vim \
@@ -48,9 +42,7 @@ brew install \
 
 brew cask install \
                   adapter \
-                  docker \
                   dropbox \
-                  firefox \
                   gimp \
                   google-chrome \
                   imagealpha \
@@ -58,13 +50,8 @@ brew cask install \
                   iterm2 \
                   kap \
                   numi \
-                  opera \
                   skype \
-                  the-unarchiver \
-                  torbrowser \
-                  transmission \
                   vlc \
-                  wireshark \
 
 # Cleanup
 brew cleanup

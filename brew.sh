@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# Install command-line tools using Homebrew.
-
-# Make sure we’re using the latest Homebrew.
 brew update
-
-# Upgrade any already-installed formulae.
 brew upgrade
 
 # Install GNU core utilities (those that come with macOS are outdated).
@@ -17,20 +12,20 @@ brew install bash
 brew install bash-completion2
 
 # Switch to using brew-installed bash as default shell
-if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
-  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
+if ! fgrep -q '/opt/homebrew/bin/bash' /etc/shells; then
+  echo '/opt/homebrew/bin/bash' | sudo tee -a /etc/shells;
   chsh -s /usr/local/bin/bash;
 fi;
 
+# CLI apps
 brew install \
              bat \
              curl \
              fd \
              git \
              gnu-sed \
-             go \
+             macos-trash \
              node \
-             openssl \
              python \
              safe-rm \
              thefuck \
@@ -40,21 +35,16 @@ brew install \
              vim \
              watch \
 
-brew cask install \
-                  adapter \
-                  dropbox \
-                  gimp \
-                  google-chrome \
-                  imagealpha \
-                  imageoptim \
-                  iterm2 \
-                  kap \
-                  numi \
-                  skype \
-                  vlc \
+# Desktop apps
+brew install \
+             adapter \
+             dropbox \
+             gimp \
+             imagealpha \
+             imageoptim \
+             kap \
+             numi \
+             skype \
+             vlc \
 
-# Cleanup
 brew cleanup
-
-echo "Install manually:"
-echo "* github.com/sindresorhus/macos-trash"

@@ -27,67 +27,7 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
 
-# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
-# the `.git` directory, listing directories first. The output gets piped into
-# `less` with options to preserve color and line numbers, unless the output is
-# small enough for one screen.
-function tre() {
-	tree -aC -I '.DS_Store|.git|node_modules|.Trash|temp' --dirsfirst "$@" | less -FRX;
-}
-
-# Recursively replace old string with new string
-# in all files of current directory (except in ./.git directory).
-# First argument - old string, second argument - new string.
-function recreplace() {
-	ag -lr "$1" . | xargs sed -i "" "s|$1|$2|g"
-}
-
 # Run `dig` and display the most useful info.
 function digga() {
 	dig +nocmd "$1" any +multiline +noall +answer;
 }
-
-# Check, which size have an every single package
-# (https://hackernoon.com/a-story-of-a-fat-go-binary-20edc6549b97#.8m9dqk149).
-function gofatty() {
-	eval `go build -work -a 2>&1` && find $WORK -type f -name "*.a" | xargs -I{} du -hxs "{}" | gsort -rh | sed -e s:${WORK}/::g
-}
-
-# FZF: cd chosen directory.
-cf() {
-  local path="$(tree -dfi | fzf)";
-  if [ "$path" != "" ]; then
-    cd "$path";
-  fi
-}
-
-# FZF: open chosen file in vim.
-vf() {
-  local path="$(fzf)";
-  if [ "$path" != "" ]; then
-    vim "$path";
-  fi
-}
-
-# FZF: show chosen file.
-catf() {
-  local path="$(fzf)";
-  if [ "$path" != "" ]; then
-    cat "$path";
-  fi
-}
-
-# FZF: history.
-hf() {
-  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
-}
-
-# FZF: checkout git branch
-chf() {
-  local branches branch
-  branches=$(git branch -vv) &&
-  branch=$(echo "$branches" | fzf +m) &&
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-}
-
-

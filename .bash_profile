@@ -14,10 +14,6 @@ if [ -f /usr/local/share/bash-completion/bash_completion ]; then
   . /usr/local/share/bash-completion/bash_completion
 fi
 
-# Ignore duplicates and ls, bg ,fg, exit in history.
-export HISTCONTROL="ignoredups"
-export HISTIGNORE="&:ls:[bf]g:exit"
-
 # Case-insensitive globbing (used in pathname expansion).
 shopt -s nocaseglob
 
@@ -27,12 +23,3 @@ shopt -s histappend
 # Correct cd mispells.
 shopt -s cdspell
 
-# Load rupa's z if installed.
-[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
-
-# Set locale.
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# Load thefuck alias.
-eval $(thefuck --alias)

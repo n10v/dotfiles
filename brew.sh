@@ -28,7 +28,6 @@ brew install \
              node \
              python \
              safe-rm \
-             thefuck \
              tldr \
              yarn \
              youtube-dl \
@@ -48,3 +47,4 @@ brew install \
              vlc \
 
 brew cleanup
+

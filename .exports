@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
-# Use english language by default.
-export LANG=en_US
+# Set locale.
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Make vim the default editor.
 export EDITOR=vim
 
+# Ignore duplicates and ls, bg ,fg, exit in history.
+export HISTCONTROL="ignoredups"
+export HISTIGNORE="&:ls:[bf]g:exit"
+
 # Increase Bash history size. Allow 10000 entries; the default is 500.
 export HISTSIZE='10000';
 export HISTFILESIZE="${HISTSIZE}";
-
-# Use fd for FZF.
-export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs -E=node_modules -E=temp -E=.DS_Store -E=.lock$ --type f'

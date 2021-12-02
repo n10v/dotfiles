@@ -8,12 +8,6 @@
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD --; git diff --patch-with-stat"
 
-	# Pull in remote changes for the current repository and all its submodules
-	pu = !"git pull; git submodule foreach git pull origin master"
-
-	# Clone a repository including all submodules
-	c = clone --recursive
-
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
@@ -31,13 +25,6 @@
 	a = add
 	ch = checkout
 	co = commit
-
-  # Used for golang contribution
-	change = codereview change
-	mail = codereview mail
-	pending = codereview pending
-	submit = codereview submit
-	sync = codereview sync
 
 [apply]
 	# Detect whitespace errors when applying a patch

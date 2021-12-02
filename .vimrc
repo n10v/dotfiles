@@ -43,7 +43,6 @@ set showbreak=>\ \ \
 " Colorscheme
 syntax enable
 set t_Co=256
-set background=light
 
 " Enter automatically into the files directory
 autocmd BufEnter * silent! lcd %:p:h

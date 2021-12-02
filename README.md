@@ -1,6 +1,4 @@
-![Screenshot of my shell prompt](https://raw.github.com/bogem/dotfiles/master/photo.png)
-
-Heavily inspired (almost copied) from [mathias' dotfiles](https://github.com/mathiasbynens/dotfiles).
+Heavily inspired from [mathias' dotfiles](https://github.com/mathiasbynens/dotfiles).
 
 ## Installation
 

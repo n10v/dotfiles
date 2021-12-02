@@ -1,19 +1,10 @@
 #!/usr/bin/env bash
 
-alias ag="ag --ignore-dir node_modules --ignore-dir temp -U"
 alias cat="bat --theme=GitHub --style=grid,header"
-alias cloc="cloc --exclude-dir=node_modules,static,vendor"
 alias fd="fd  -E=node_modules -E=temp -E=.DS_Store -E=.lock$ --no-ignore-vcs"
-alias fzf="fzf --height 30% --border"
-alias n="nehm"
 alias rm="safe-rm"
 alias rt="trash"
 alias sed="gsed"
-alias youtube-dl="youtube-dl --buffer-size=16K --no-playlist -o '~/Downloads/%(title)s.%(ext)s'"
-alias y1080="youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
-alias y720="youtube-dl -f 'bestvideo[height<=720]+bestaudio/best[height<=720]'"
-alias y="youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
-alias ya="y -x --audio-format 'mp3'"
 
 # ls
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -27,7 +18,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
 
 # Open url of origin remote git repo
 alias origin='git remote get-url origin | xargs open'

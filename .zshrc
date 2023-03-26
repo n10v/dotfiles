@@ -1,3 +1,4 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="spaceship"
 zstyle ':omz:update' mode disabled # Disable automatic updates
@@ -33,10 +34,7 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-
 source $ZSH/oh-my-zsh.sh
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ### KEY BINDINGS ###
 

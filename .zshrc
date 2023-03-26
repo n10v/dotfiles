@@ -9,11 +9,6 @@ VI_MODE_SET_CURSOR=true
 export EDITOR='vim'
 export RPS1="%{$reset_color%}" # Disable default "<<<" NORMAL mode indicator in right prompt.
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 plugins=(
   alias-finder
   common-aliases
@@ -95,8 +90,6 @@ function mkd() {
 # Start an HTTP server from a directory, optionally specifying the port.
 function server() {
 	local port="${1:-8000}";
-	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
 

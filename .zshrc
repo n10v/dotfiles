@@ -78,6 +78,7 @@ alias gamend='git commit --amend --reuse-message=HEAD'
 alias gd='git diff-index --quiet HEAD --; git diff --patch-with-stat'
 alias gdstat='git diff --stat'
 alias gmod='git merge origin/$(git_develop_branch)'
+alias glog="git log --oneline --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
 
 alias ghprvw="gh pr view --web"
 
@@ -105,6 +106,23 @@ function server() {
 function digga() {
 	dig +nocmd "$1" any +multiline +noall +answer;
 }
+
+# Set SPACESHIP_CHAR_PREFIX to the logo of Node package manager
+# on shell startup and on every cd.
+function set_char_prefix() {
+  if [[ $(spaceship::upsearch "yarn.lock") ]]; then
+    SPACESHIP_CHAR_PREFIX=' '
+  fi
+
+  if [[ $(spaceship::upsearch "package-lock.json") ]]; then
+    SPACESHIP_CHAR_PREFIX="$SPACESHIP_CHAR_PREFIX "
+  fi
+}
+function chpwd() {
+  emulate -L zsh
+  set_char_prefix
+}
+set_char_prefix
 
 ### IMPORTANT TO KEEP AT THE END ###
 

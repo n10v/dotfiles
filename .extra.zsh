@@ -1,0 +1,4 @@
+GIT_AUTHOR_NAME="Albert Nigmatzianov"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+GIT_AUTHOR_EMAIL="albertnigma@gmail.com" # Use corporate email
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"

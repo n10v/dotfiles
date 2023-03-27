@@ -8,6 +8,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 VI_MODE_SET_CURSOR=true
 export EDITOR='vim'
 export RPS1="%{$reset_color%}" # Disable default "<<<" NORMAL mode indicator in right prompt.
+FZF_ALT_C_COMMAND="command fd --type d -E node_modules -E Library -E Desktop -E target -E dist -E .nuxt -E Applications -E coverage -E Documents -E Chrome\ Overrides -E Music -E Public -E Movies -E Pictures"
 
 plugins=(
   alias-finder

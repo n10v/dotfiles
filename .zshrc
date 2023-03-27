@@ -1,6 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="spaceship"
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 zstyle ':omz:update' mode disabled # Disable automatic updates
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion.

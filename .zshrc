@@ -46,41 +46,6 @@ bindkey "^[[1;2C" end-of-line # Cmd+RightArrow to navigate to end of line in VSC
 bindkey "^R" fzf-history-widget # Ctrl+R for history search
 bindkey "^[c" fzf-cd-widget # Option+C to select the folder with FZF and cd to it
 
-### ALIASES ###
-
-alias cat="bat --theme='Visual Studio Dark+' --style=grid,header"
-alias fd="fd -E=node_modules -E=temp -E=.DS_Store --no-ignore-vcs"
-alias rm="safe-rm"
-alias sed="gsed"
-
-alias ytu="yarn run test:unit"
-alias ytw="yarn run test:watch"
-
-alias n="npm"
-alias nb="npm run build"
-alias nis="npm install -S"
-alias nid="npm install -D"
-alias nrun="npm run"
-alias nd="npm run dev"
-alias nt="npm run test"
-alias ntu="npm run test:unit"
-alias ntw="npm run test:watch"
-alias nln="npm run lint"
-alias nlnf="npm run lint --fix"
-
-alias gamend='git commit --amend --reuse-message=HEAD'
-alias gd='git diff-index --quiet HEAD --; git diff --patch-with-stat'
-alias gdstat='git diff --stat'
-alias gmod='git merge origin/$(git_develop_branch)'
-alias glog="git log --oneline --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
-
-alias ghprvw="gh pr view --web"
-
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
-
-alias reload="exec $SHELL -l"
-
 ### FUNCTIONS ###
 
 # Create a new directory and enter it.
@@ -99,22 +64,82 @@ function digga() {
 	dig +nocmd "$1" any +multiline +noall +answer;
 }
 
-# Set SPACESHIP_CHAR_PREFIX to the logo of Node package manager
-# on shell startup and on every cd.
-function set_char_prefix() {
+function is_yarn() {
   if [[ $(spaceship::upsearch "yarn.lock") ]]; then
-    SPACESHIP_CHAR_PREFIX=' '
+    return 0;
+  else
+    return 1;
   fi
+}
 
+function is_npm() {
   if [[ $(spaceship::upsearch "package-lock.json") ]]; then
-    SPACESHIP_CHAR_PREFIX="$SPACESHIP_CHAR_PREFIX "
+    return 0
+  else
+    return 1
   fi
+}
+
+# Set SPACESHIP_CHAR_PREFIX to the logo of Node package manager
+# on initialisation and after every cd.
+function set_char_prefix() {
+  SPACESHIP_CHAR_PREFIX=''
+  if is_yarn; then SPACESHIP_CHAR_PREFIX=' ' fi
+  if is_npm; then SPACESHIP_CHAR_PREFIX="$SPACESHIP_CHAR_PREFIX " fi
 }
 function chpwd() {
   emulate -L zsh
   set_char_prefix
 }
 set_char_prefix
+
+### ALIASES ###
+
+alias cat="bat --theme='Visual Studio Dark+' --style=grid,header"
+alias fd="fd -E=node_modules -E=temp -E=.DS_Store --no-ignore-vcs"
+alias rm="safe-rm"
+alias sed="gsed"
+
+alias ytu="yarn run test:unit"
+alias ytw="yarn run test:watch"
+
+alias n="npm"
+alias nb="npm run build"
+alias nin="npm install"
+alias nis="npm install -S"
+alias nid="npm install -D"
+alias nrun="npm run"
+alias nd="npm run dev"
+alias nt="npm run test"
+alias ntu="npm run test:unit"
+alias ntw="npm run test:watch"
+alias nln="npm run lint"
+alias nlnf="npm run lint --fix"
+
+alias jspin="if is_yarn; then yarn install; else npm install; fi"
+alias jspb="if is_yarn; then yarn run build; else npm run build; fi"
+alias jspa="if is_yarn; then yarn add; else npm install -S; fi"
+alias jspd="if is_yarn; then yarn add -D; else npm install -D; fi"
+alias jsprun="if is_yarn; then yarn run; else npm run; fi"
+alias jspd="if is_yarn; then yarn run dev; else npm run dev; fi"
+alias jspt="if is_yarn; then yarn run test; else npm run test; fi"
+alias jsptu="if is_yarn; then yarn run test:unit; else npm run test:unit; fi"
+alias jsptw="if is_yarn; then yarn run test:watch; else npm run test:watch; fi"
+alias jspln="if is_yarn; then yarn run lint; else npm run lint; fi"
+alias jspnf="if is_yarn; then yarn run lint --fix; else npm run lint --fix; fi"
+
+alias gamend='git commit --amend --reuse-message=HEAD'
+alias gd='git diff-index --quiet HEAD --; git diff --patch-with-stat'
+alias gdstat='git diff --stat'
+alias gmod='git merge origin/$(git_develop_branch)'
+alias glog="git log --oneline --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+
+alias ghprvw="gh pr view --web"
+
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+
+alias reload="exec $SHELL -l"
 
 ### IMPORTANT TO KEEP AT THE END ###
 

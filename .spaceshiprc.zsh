@@ -1,30 +1,57 @@
+SPACESHIP_ANSIBLE_SHOW=false
+SPACESHIP_AZURE_SHOW=false
+SPACESHIP_BUN_SHOW=false
+SPACESHIP_CONDA_SHOW=false
+SPACESHIP_CRYSTAL_SHOW=false
+SPACESHIP_DART_SHOW=false
+SPACESHIP_DENO_SHOW=false
+SPACESHIP_DOTNET_SHOW=false
+SPACESHIP_DOCKER_COMPOSE=false
+SPACESHIP_ELIXIR_SHOW=false
+SPACESHIP_ELM_SHOW=false
+SPACESHIP_ERLANG_SHOW=false
+SPACESHIP_EXEC_TIME_SHOW=false
+SPACESHIP_GNU_SCREEN_SHOW=false
+SPACESHIP_GCLOUD_SHOW=false
+SPACESHIP_HASKELL_SHOW=false
+SPACESHIP_HOST_SHOW=false
+SPACESHIP_IBMCLOUD_SHOW=false
+SPACESHIP_JULIA_SHOW=false
+SPACESHIP_LUA_SHOW=false
+SPACESHIP_HG_SHOW=false
+SPACESHIP_OCAML_SHOW=false
 SPACESHIP_PACKAGE_SHOW=false
+SPACESHIP_PERL_SHOW=false
+SPACESHIP_PHP_SHOW=false
+SPACESHIP_PULUMI_SHOW=false
+SPACESHIP_PURESCRIPT_SHOW=false
+SPACESHIP_RUBY_SHOW=false
+SPACESHIP_RUST_SHOW=false
+SPACESHIP_SCALA_SHOW=false
+SPACESHIP_SWIFT_SHOW=false
+SPACESHIP_TERRAFORM_SHOW=false
+SPACESHIP_TERRAFORM_SHOW=false
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_USER_SHOW=false
-SPACESHIP_EXEC_TIME_SHOW=false
+SPACESHIP_VLANG_SHOW=false
+SPACESHIP_VENV_SHOW=false
+SPACESHIP_XCODE_SHOW=false
+SPACESHIP_ZIG_SHOW=false
 
 SPACESHIP_PROMPT_ORDER=(
-  dir            # Current directory section
-  git            # Git section (git_branch + git_status)
-  node           # Node.js section
-  python         # Python section
-  xcode          # Xcode section
-  swift          # Swift section
-  kotlin         # Kotlin section
-  java           # Java section
-  docker         # Docker section
-  docker_compose # Docker section
-  aws            # Amazon Web Services section
-  kubectl        # Kubectl context section
-  ansible        # Ansible section
-  terraform      # Terraform workspace section
-  async          # Async jobs indicator
-  line_sep       # Line break
-  jobs           # Background jobs indicator
-  sudo           # Sudo indicator
-  char           # Prompt character
+  dir
+  git
+  node
+  python
+  golang
+  kotlin
+  java
+  docker
+  async
+  line_sep
+  jobs
+  sudo
+  char
 )
 
-SPACESHIP_RPROMPT_ORDER=(
-  time # Time stamps section
-)
+SPACESHIP_RPROMPT_ORDER=(time)

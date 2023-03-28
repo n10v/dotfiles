@@ -97,6 +97,14 @@ function chpwd() {
 }
 set_char_prefix
 
+# JavaScript Package Manager
+function jsp() {
+  if is_yarn; then yarn "$@"; else npm "$@"; fi
+}
+function jspa() {
+  if is_yarn; then yarn add "$@"; else npm install "$@"; fi
+}
+
 ### ALIASES ###
 
 alias cat="bat --theme='Visual Studio Dark+' --style=grid,header"
@@ -120,17 +128,16 @@ alias ntw="npm run test:watch"
 alias nln="npm run lint"
 alias nlnf="npm run lint --fix"
 
-alias jspin="if is_yarn; then yarn install; else npm install; fi"
-alias jspb="if is_yarn; then yarn run build; else npm run build; fi"
-alias jspa="if is_yarn; then yarn add; else npm install -S; fi"
-alias jspd="if is_yarn; then yarn add -D; else npm install -D; fi"
-alias jsprun="if is_yarn; then yarn run; else npm run; fi"
-alias jspd="if is_yarn; then yarn run dev; else npm run dev; fi"
-alias jspt="if is_yarn; then yarn run test; else npm run test; fi"
-alias jsptu="if is_yarn; then yarn run test:unit; else npm run test:unit; fi"
-alias jsptw="if is_yarn; then yarn run test:watch; else npm run test:watch; fi"
-alias jspln="if is_yarn; then yarn run lint; else npm run lint; fi"
-alias jspnf="if is_yarn; then yarn run lint --fix; else npm run lint --fix; fi"
+alias jspin="jsp install"
+alias jspb="jsp run build"
+alias jspad="jspa -D"
+alias jsprun="jsp run"
+alias jspd="jsp run dev"
+alias jspt="jsp run test"
+alias jsptu="jsp run test:unit"
+alias jsptw="jsp run test:watch"
+alias jspln="jsp run lint"
+alias jsplnf="jsp run lint --fix"
 
 alias gamend='git commit --amend --reuse-message=HEAD'
 alias gd='git diff-index --quiet HEAD --; git diff --patch-with-stat'

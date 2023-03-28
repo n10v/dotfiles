@@ -64,6 +64,10 @@ function digga() {
 	dig +nocmd "$1" any +multiline +noall +answer;
 }
 
+function gacp() {
+  git add . && git commit -m "$1" && git push
+}
+
 function is_yarn() {
   if [[ $(spaceship::upsearch "yarn.lock") ]]; then
     return 0;

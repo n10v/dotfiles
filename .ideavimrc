@@ -1,0 +1,33 @@
+set clipboard=unnamed
+set history=500
+set hlsearch
+set ignorecase
+set incsearch
+set number
+set relativenumber
+set smartcase
+set visualbell
+
+" IdeaVim-specific
+set ideamarks
+set ideastatusicon=gray
+set idearefactormode=select
+
+" Plugins
+set commentary
+set ideajoin
+set highlightedyank
+set multiple-cursors
+set ReplaceWithRegister
+set sneak
+set surround
+set argtextobj
+set exchange
+
+set quickscope
+
+" Key mappings
+map <C-n> :nohl<CR>
+map <C-Up> <C-W><Up>
+map <C-Down> <C-W><Down>
+map <C-K> :only<CR>

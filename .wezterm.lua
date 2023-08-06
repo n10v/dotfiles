@@ -8,10 +8,11 @@ local config = wezterm.config_builder()
 config.colors = {
   foreground = '#f1f1f1'
 }
-config.font = wezterm.font 'JetBrains Mono'
+config.font = wezterm.font_with_fallback { 'JetBrains Mono', 'Apple Color Emoji' }
 config.font_size = 14.0
 config.initial_rows = 35
 config.initial_cols = 90
+config.enable_scroll_bar = true
 config.keys = {
   {
     key = 'Backspace',

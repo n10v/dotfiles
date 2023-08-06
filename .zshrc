@@ -10,6 +10,9 @@ export EDITOR='vim'
 export RPS1="%{$reset_color%}" # Disable default "<<<" NORMAL mode indicator in right prompt.
 FZF_ALT_C_COMMAND="command fd --type d -E node_modules -E Library -E Desktop -E target -E dist -E .nuxt -E Applications -E coverage -E Documents -E Chrome\ Overrides -E Music -E Public -E Movies -E Pictures"
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 plugins=(
   alias-finder
   common-aliases
@@ -44,7 +47,8 @@ bindkey "^[[1;2D" vi-beginning-of-line # Cmd+LeftArrow to navigate to beginning 
 bindkey "^E" end-of-line # Cmd+RightArrow to navigate to end of line in VSCode
 bindkey "^[[1;2C" end-of-line # Cmd+RightArrow to navigate to end of line in VSCode
 bindkey "^R" fzf-history-widget # Ctrl+R for history search
-bindkey "^[c" fzf-cd-widget # Option+C to select the folder with FZF and cd to it
+bindkey "^[c" fzf-cd-widget # Option+C to select the folder with FZF and cd to it in WezTerm
+bindkey "ç" fzf-cd-widget # Option+C to select the folder with FZF and cd to it in VSCode
 
 ### FUNCTIONS ###
 
@@ -55,8 +59,7 @@ function mkd() {
 
 # Start an HTTP server from a directory, optionally specifying the port.
 function server() {
-	local port="${1:-8000}";
-	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
+	python3 -m 'http.server' 8000;
 }
 
 # Run `dig` and display the most useful info.
@@ -144,6 +147,19 @@ alias gd='git diff-index --quiet HEAD --; git diff --patch-with-stat'
 alias gdstat='git diff --stat'
 alias gmod='git merge origin/$(git_develop_branch)'
 alias glog="git log --oneline --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+alias git_add_aliases="alias-finder -l 'git add'"
+alias git_commit_aliases="alias-finder -l 'git commit'"
+alias git_push_aliases="alias-finder -l 'git push'"
+alias git_checkout_aliases="alias-finder -l 'git checkout'"
+alias git_stash_aliases="alias-finder -l 'git stash'"
+alias git_merge_aliases="alias-finder -l 'git merge'"
+alias git_rebase_aliases="alias-finder -l 'git rebase'"
+alias git_branch_aliases="alias-finder -l 'git branch'"
+alias git_reset_aliases="alias-finder -l 'git reset'"
+alias git_status_aliases="alias-finder -l 'git status'"
+alias git_clone_aliases="alias-finder -l 'git clone'"
+alias git_diff_aliases="alias-finder -l 'git diff'"
+alias git_log_aliases="alias-finder -l 'git log'"
 
 alias ghprvw="gh pr view --web"
 

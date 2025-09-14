@@ -9,7 +9,7 @@ export EDITOR='vim'
 export RPS1="%{$reset_color%}" # Disable default "<<<" NORMAL mode indicator in right prompt.
 export LSCOLORS=ExFxCxDxBxegedabagacad
 FZF_ALT_C_COMMAND="command fd --type d -E node_modules -E Library -E Desktop -E target -E dist -E .nuxt -E Applications -E coverage -E Documents -E Chrome\ Overrides -E Music -E Public -E Movies -E Pictures"
-export PROMPT='(%D{%H:%M}) (%1~) %(?,%F{green},%F{red})→%f '
+export PROMPT='(%D{%H:%M:%S}) (%1~) %(?,%F{green},%F{red})→%f '
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8

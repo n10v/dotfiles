@@ -2,7 +2,7 @@
 
 1. Create projects directory: `mkdir Projects && cd Projects`
 1. Clone the project: `git clone https://github.com/bogem/dotfiles && cd dotfiles`
-1. Copy dotfiles: `cp .extra.zsh .spaceshiprc.zsh .vimrc .wezterm.lua .zshrc ~`
+1. Copy dotfiles: `cp .extra.zsh .vimrc .zshrc ~`
 1. Install Homebrew: https://brew.sh/
 1. Install Homebrew packages: `brew bundle --file=~/Projects/dotfiles/Brewfile`
 1. Install vim-plug: https://github.com/junegunn/vim-plug

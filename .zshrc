@@ -1,6 +1,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export ZSH="$HOME/.oh-my-zsh"
-source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 zstyle ':omz:update' mode disabled # Disable automatic updates
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion.
@@ -8,21 +7,17 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 VI_MODE_SET_CURSOR=true
 export EDITOR='vim'
 export RPS1="%{$reset_color%}" # Disable default "<<<" NORMAL mode indicator in right prompt.
+export LSCOLORS=ExFxCxDxBxegedabagacad
 FZF_ALT_C_COMMAND="command fd --type d -E node_modules -E Library -E Desktop -E target -E dist -E .nuxt -E Applications -E coverage -E Documents -E Chrome\ Overrides -E Music -E Public -E Movies -E Pictures"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 plugins=(
-  alias-finder
   common-aliases
-  dirhistory
   fzf
   fzf-tab
-  gh
-  git
   gitfast
-  macos
   npm
   safe-paste
   vi-mode
@@ -47,8 +42,6 @@ bindkey "^[[1;2D" vi-beginning-of-line # Cmd+LeftArrow to navigate to beginning 
 bindkey "^E" end-of-line # Cmd+RightArrow to navigate to end of line in VSCode
 bindkey "^[[1;2C" end-of-line # Cmd+RightArrow to navigate to end of line in VSCode
 bindkey "^R" fzf-history-widget # Ctrl+R for history search
-bindkey "^[c" fzf-cd-widget # Option+C to select the folder with FZF and cd to it in WezTerm
-bindkey "ç" fzf-cd-widget # Option+C to select the folder with FZF and cd to it in VSCode
 
 ### FUNCTIONS ###
 
@@ -67,101 +60,25 @@ function digga() {
 	dig +nocmd "$1" any +multiline +noall +answer;
 }
 
-function gacp() {
-  git add . && git commit -m "$1" && git push
-}
-
-function is_yarn() {
-  if [[ $(spaceship::upsearch "yarn.lock") ]]; then
-    return 0;
-  else
-    return 1;
-  fi
-}
-
-function is_npm() {
-  if [[ $(spaceship::upsearch "package-lock.json") ]]; then
-    return 0
-  else
-    return 1
-  fi
-}
-
-# Set SPACESHIP_CHAR_PREFIX to the logo of Node package manager
-# on initialisation and after every cd.
-function set_char_prefix() {
-  SPACESHIP_CHAR_PREFIX=''
-  if is_yarn; then SPACESHIP_CHAR_PREFIX=' ' fi
-  if is_npm; then SPACESHIP_CHAR_PREFIX="$SPACESHIP_CHAR_PREFIX " fi
-}
-function chpwd() {
-  emulate -L zsh
-  set_char_prefix
-}
-set_char_prefix
-
-# JavaScript Package Manager
-function jsp() {
-  if is_yarn; then yarn "$@"; else npm "$@"; fi
-}
-function jspa() {
-  if is_yarn; then yarn add "$@"; else npm install "$@"; fi
-}
-
 ### ALIASES ###
+
+alias ls="ls -Gh"
+alias lsa="ls -A" # all files inc dotfile
+alias lsl="ls -lF" # all files, in long format
+alias lsla="ls -lAF" # all files inc dotfiles, in long format
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 alias cat="bat --theme='Visual Studio Dark+' --style=grid,header"
 alias fd="fd -E=node_modules -E=temp -E=.DS_Store --no-ignore-vcs"
 alias rm="safe-rm"
 alias sed="gsed"
 
-alias ytu="yarn run test:unit"
-alias ytw="yarn run test:watch"
-
-alias n="npm"
-alias nb="npm run build"
-alias nin="npm install"
-alias nis="npm install -S"
-alias nid="npm install -D"
-alias nrun="npm run"
-alias nd="npm run dev"
-alias nt="npm run test"
-alias ntu="npm run test:unit"
-alias ntw="npm run test:watch"
-alias nln="npm run lint"
-alias nlnf="npm run lint --fix"
-
-alias jspin="jsp install"
-alias jspb="jsp run build"
-alias jspad="jspa -D"
-alias jsprun="jsp run"
-alias jspd="jsp run dev"
-alias jspt="jsp run test"
-alias jsptu="jsp run test:unit"
-alias jsptw="jsp run test:watch"
-alias jspln="jsp run lint"
-alias jsplnf="jsp run lint --fix"
-
-alias gamend='git commit --amend --reuse-message=HEAD'
-alias gd='git diff-index --quiet HEAD --; git diff --patch-with-stat'
-alias gdstat='git diff --stat'
-alias gmod='git merge origin/$(git_develop_branch)'
-alias glog="git log --oneline --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
-alias git_add_aliases="alias-finder -l 'git add'"
-alias git_commit_aliases="alias-finder -l 'git commit'"
-alias git_push_aliases="alias-finder -l 'git push'"
-alias git_checkout_aliases="alias-finder -l 'git checkout'"
-alias git_stash_aliases="alias-finder -l 'git stash'"
-alias git_merge_aliases="alias-finder -l 'git merge'"
-alias git_rebase_aliases="alias-finder -l 'git rebase'"
-alias git_branch_aliases="alias-finder -l 'git branch'"
-alias git_reset_aliases="alias-finder -l 'git reset'"
-alias git_status_aliases="alias-finder -l 'git status'"
-alias git_clone_aliases="alias-finder -l 'git clone'"
-alias git_diff_aliases="alias-finder -l 'git diff'"
-alias git_log_aliases="alias-finder -l 'git log'"
-
-alias ghprvw="gh pr view --web"
+alias origin='git remote get-url origin | xargs open'
+alias ghpr="gh pr view --web"
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"

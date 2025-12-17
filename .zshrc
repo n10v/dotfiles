@@ -13,6 +13,7 @@ export PROMPT='(%D{%H:%M:%S}) (%1~) %(?,%F{green},%F{red})→%f '
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 plugins=(
   common-aliases
